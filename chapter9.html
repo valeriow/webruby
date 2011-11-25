@@ -37,6 +37,42 @@
 <pre>$ gem install sinatra
 </pre>
 
+<h3>Which web server?</h3>
+<p>The <code>Thin</code> web server is recommended. <code>Thin</code> uses code from <code>Mongrel</code> web server to parse HTTP requests but improves network I/O performance via EventMachine, which manages evented network communication. To install <code>Thin</code>, in the already open command window type:</p>
+<pre>$ gem install thin
+</pre>
+
+<p>If <code>Thin</code> is not installed, Sinatra will first try to run with <code>Mongrel</code>, choosing <code>WEBrick</code> if <code>Mongrel</code> isn't available either.</p>
+
+<h3>Our trivial Sinatra application</h3>
+<p>In the folder <code>sinatraapp</code> write a program, call it <code>myapp1.rb</code>, as follows:</p>
+<pre>require 'sinatra'
+get '/' do
+  "Hello Ruby participants from across the globe!"
+end
+</pre>
+
+<p>In the open command window, type:</p>
+<pre>ruby myapp1.rb
+[2011-11-25 10:15:18] INFO  WEBrick 1.3.1
+[2011-11-25 10:15:18] INFO  ruby 1.9.3 (2011-10-30) [i386-mingw32]
+== Sinatra/1.3.1 has taken the stage on 4567 for development with backup from WEBrick
+[2011-11-25 10:15:18] INFO  WEBrick::HTTPServer#start: pid=7644 port=4567
+</pre>
+
+<p>As you can see above, you will be notified that Sinatra has taken the stage.</p>
+<p>Sinatra uses port 4567 by default. Open a web browser and navigate to http://localhost:4567/. Your Sinatra application should respond with our greeting namely:</p>
+<pre>Hello Ruby participants from across the globe!
+</pre>
+
+<p>Let's look at what the following does:</p>
+<pre>get '/' do
+</pre>
+
+<p>The form <code>verb 'route' do</code> in our code instructs the application to respond to HTTP GET requests to the path '/'; our response is composed by the block we provided for behavior. This composite endpoint is referred to as a <em>route</em>.</p>
+
+
+
 <p>WIP...</p>
 
 <h2>References</h2>
