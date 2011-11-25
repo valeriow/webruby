@@ -75,8 +75,45 @@
 
 <p>A <code>DELETE</code> request deletes a resource (or makes it unavailable) for future references.</p>
 
+<h3>Using cURL</h3>
+
+<p><strong>cURL</strong> is available on many platforms, including Windows (all variants), OSX (all versions) and Linux (all distros). cURL is available from the cURL website at <a href="http://curl.haxx.se/">http://curl.haxx.se/</a>. Note that when you installed the Bash shell curl was also installed.</p>
+
+<p>To  install  cURL  on  Linux,  you  should  first  check  for  cURL  binaries  in  your  distributions package repository. For exact instructions on how to do this, refer to your distribution's documentation. On Ubuntu and other Debian variants, you can install cURL by issuing the following command:</p>
+
+<pre>$ sudo apt-get install curl
+</pre>
+
+<p>If cURL is not available in your distribution's package repository or you're running another operating system, you can find the right cURL package by following the download wizard at <a href="http://curl.haxx.se/dlwiz/">http://curl.haxx.se/dlwiz/</a>. Simply select the "curl executable" option, input information about your computer and operating system and it will direct you to the correct file download. Once downloaded, extract any files in the archive to an easily accessible file (for example, c:\cURL on Windows).</p>
+
+<p>cURL is a command-line tool that can issue HTTP requests. This means it is run from the command prompt (in Windows) or terminal (in Linux or OSX) and its results are displayed in the terminal window. There is no graphical interface. So to use cURL, you first have to open a command-line window.</p>
+
+<p>On Windows, go to Start -> Run and enter "cmd" (without quotes) into the dialog and press enter.</p>
+
+<p>On OSX, open the Terminal application. You'll find this in the Applications/Utilities folder.</p>
+
+<p>On Linux, open a Bash Prompt or Terminal window. Again, since all distributions are different, refer to your distributions documentation for more detailed information. On Ubuntu, you can open a bash prompt by going to Applications -> Accessories -> Terminal.</p>
+
+<p>Though Windows, OSX and Linux all run different command-line shells (the program that interprets commands on the terminal and runs executables), the commands presented here will work on all of them.</p>
+
+<p>First, change the directory to where you extracted the cURL archive. If you installed cURL using an installer or a package on Linux, cURL will already be in your path (meaning it can be run even though you're not in the same directory) so this isn't needed. For example, if I placed cURL in C:\cURL on my Windows computer, I would issue the following command.</p>
+<pre>cd c:\cURL
+</pre>
+
+<p>You can now issue cURL commands. On Linux or OSX, you may have to prepend ./ to your commands. For example, instead of <b>curl http://some/url</b>, the command you'd use would be <b>./curl http://some/url</b>.</p>
+
+<p>To test cURL, enter the following command:</p>
+<pre>curl -I http://twitter.com/
+</pre>
+
+<p>You should see HTTP response headers. The first line should be "HTTP/1.1 200 OK." This means you've made a successful request to Twitter using cURL.</p>
+
+<p>cURL is a command-line tool. This means it's launched from a command line with a number of switches and parameters. Switches change how the cURL command will act, and begin with the - character. For example, the previous example used the -I switch, which means to display the HTTP response headers only, and not the HTTP response body. Parameters pass information to either a switch, or the cURL command itself. In the previous example, the Twitter URL was a parameter.</p>
+
+<p>Please refer to the following URL for the various options available in cURL: <a href="http://curl.haxx.se/docs/manpage.html">http://curl.haxx.se/docs/manpage.html</a></p>
+
 <h3>HTTP response codes</h3>
-<p>After a client (such as a web browser) sends a request corresponding to one of the HTTP verbs, the web server responds with a numerical code indicating the HTTP status of the response. For example, a status code of 200 means "success", and a status code of 301 means "permanent redirect". If you install <b>curl</b> (when you installed the Bash shell, curl was also installed), a command-line client that can issue HTTP requests, you can see this directly at, e.g., www.satishtalim.com (where the --head flag prevents curl from returning the whole page). Open a Bash shell and type:</p>
+<p>After a client (such as a web browser) sends a request corresponding to one of the HTTP verbs, the web server responds with a numerical code indicating the HTTP status of the response. For example, a status code of 200 means "success", and a status code of 301 means "permanent redirect". With cURL, you can see this directly at, e.g., www.satishtalim.com (where the --head flag prevents curl from returning the whole page). Open a Bash shell and type:</p>
 
 <pre>$ curl --head www.satishtalim.com
   HTTP/1.1 200 OK
