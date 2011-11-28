@@ -22,5 +22,5 @@ Contributing to this project
 Acknowledgments
 ---------------
 
-* Oto Brglez ( https://github.com/otobrglez ) for "Using Nokogiri"
+* Oto Brglez ( https://github.com/otobrglez ) for the note on "*Using Nokogiri*"
 * Michael Kohl ( https://github.com/citizen428 ) for proof reading and making relevant corrections to chapters 1 and 2.
