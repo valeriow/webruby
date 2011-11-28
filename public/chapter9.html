@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<title>Intermediate Ruby</title>
+<meta charset="utf-8">
+</head>
+<body>
+<div>
+<h1>Day 9</h1>
+<h2>Sinatra with MongoDB</h2>
+<p>Some concepts that are core to web development (and which we have covered earlier - the HTTP specification, HTML, CSS, etc.) are critical to understanding how to be productive with Sinatra; I recommend that you have at least a passing familiarity with these concepts to make the Sinatra experience a little easier.</p>
+
+<h3>What's Sinatra?</h3>
+
+<p>Sinatra keeps a minimal feature set, leaving developers to use the tools that best suit them and their application. Unlike Rails, there's no enforcement of concepts like MVC or REST in Sinatra.</p>
+
+<p>It doesn't assume much about your application, apart from that:</p>
+<ul>
+<li>it will be written in the Ruby programming language</li>
+<li>it will have URLs</li>
+</ul>
+
+<p>Sinatra itself provides just a minimal layer on top of the HTTP protocol. Sinatra rides on Rack.</p>
+
+<h3>Create a folder on your hard disk</h3>
+<p>Create a folder <code>sinatraapp</code>. This is where we will store our Sinatra app.</p>
+
+
+<h3>Install Sinatra</h3>
+<p>The simplest way to obtain Sinatra is through Rubygems.</p>
+<p>In the folder <code>sinatraapp</code>, open a command window and type:</p>
+<pre>$ gem install sinatra
+</pre>
+
+<h3>Which web server?</h3>
+<p>The <code>Thin</code> web server is recommended. <code>Thin</code> uses code from <code>Mongrel</code> web server to parse HTTP requests but improves network I/O performance via EventMachine, which manages evented network communication. To install <code>Thin</code>, in the already open command window type:</p>
+<pre>$ gem install thin
+</pre>
+
+<p>If <code>Thin</code> is not installed, Sinatra will first try to run with <code>Mongrel</code>, choosing <code>WEBrick</code> if <code>Mongrel</code> isn't available either.</p>
+
+<h3>Our trivial Sinatra application</h3>
+<p>In the folder <code>sinatraapp</code> write a program, call it <code>myapp1.rb</code>, as follows:</p>
+<pre>require 'sinatra'
+get '/' do
+  "Hello Ruby participants from across the globe!"
+end
+</pre>
+
+<p>In the open command window, type:</p>
+<pre>ruby myapp1.rb
+[2011-11-25 10:15:18] INFO  WEBrick 1.3.1
+[2011-11-25 10:15:18] INFO  ruby 1.9.3 (2011-10-30) [i386-mingw32]
+== Sinatra/1.3.1 has taken the stage on 4567 for development with backup from WEBrick
+[2011-11-25 10:15:18] INFO  WEBrick::HTTPServer#start: pid=7644 port=4567
+</pre>
+
+<p>As you can see above, you will be notified that Sinatra has taken the stage.</p>
+<p>Sinatra uses port 4567 by default. Open a web browser and navigate to http://localhost:4567/. Your Sinatra application should respond with our greeting namely:</p>
+<pre>Hello Ruby participants from across the globe!
+</pre>
+
+<p>Let's look at what the following does:</p>
+<pre>get '/' do
+</pre>
+
+<p>The form <code>verb 'route' do</code> in our code instructs the application to respond to HTTP GET requests to the path '/'; our response is composed by the block we provided for behavior. This composite endpoint is referred to as a <em>route</em>.</p>
+
+<p>Now let's use cURL to see what happens when this route is executed:</p>
+<pre>E:\cURL>curl http://localhost:4567
+Welcome from RubyLearning!
+c:\cURL>curl -v http://localhost:4567
+* About to connect() to localhost port 4567 (#0)
+*   Trying 127.0.0.1... connected
+&gt; GET / HTTP/1.1
+&gt; User-Agent: curl/7.22.0 (i386-pc-win32) libcurl/7.22.0 OpenSSL/0.9.8r zlib/1.2.5
+&gt; Host: localhost:4567
+&gt; Accept: */*
+&gt;
+&lt; HTTP/1.1 200 OK
+&lt; X-Frame-Options: sameorigin
+&lt; X-Xss-Protection: 1; mode=block
+&lt; Content-Type: text/html;charset=utf-8
+&lt; Content-Length: 26
+&lt; Server: WEBrick/1.3.1 (Ruby/1.9.3/2011-10-30)
+&lt; Date: Fri, 25 Nov 2011 08:51:01 GMT
+&lt; Connection: Keep-Alive
+&lt;
+Hello Ruby participants from across the globe!* Connection #0 to host localhost left intact
+* Closing connection #0
+</pre>
+
+<p><b>Note</b>: The switch <code>-v</code> or <code>--verbose</code> makes the fetching more verbose/talkative. Mostly useful for debugging. A line starting with '&gt;' means "header data" sent by curl, '&lt;' means "header data" received by curl that is hidden in normal cases, and a line starting with '*' means additional info provided by curl.</p>
+
+<h3>Introduction to Sinatra eBook (Updated 15th Sept. 2011)</h3>
+<p>We have had a very quick look at Sinatra. For a more detailed look, you could consider buying the <a href="http://rubylearning.com/blog/introduction-to-sinatra-ebook/">Introduction to Sinatra eBook</a>, an easy-to-follow guide to everything on Sinatra.</p>
+<p>It is priced at a reasonable US$ 14.95. The money collected helps me maintain the site and provide quality content to you all.</p>
+<p>Purchase of this eBook is <b>not mandatory</b> for this course.</p>
+
+
+<p>WIP...</p>
+
+<h2>References</h2>
+<ul>
+<li><a href="http://rubylearning.com/blog/using-git-github-ebook/">http://rubylearning.com/blog/using-git-github-ebook/</a></li>
+<li><a href="http://learningwebdesign.com/">http://learningwebdesign.com/</a></li>
+<li><a href="http://www.html-5-tutorial.com/">http://www.html-5-tutorial.com/</a></li>
+<li><a href="http://www.w3schools.com/html/html_primary.asp">http://www.w3schools.com/html/html_primary.asp</a></li>
+<li><a href="http://www.cssbasics.com/">http://www.cssbasics.com/</a></li>
+<li><a href="http://www.w3schools.com/js/">http://www.w3schools.com/js/</a></li>
+<li><a href="http://blog.segment7.net/2010/11/15/how-to-name-gems">http://blog.segment7.net/2010/11/15/how-to-name-gems</a></li>
+<li><a href="http://rubylearning.com/blog/2010/10/06/gem-sawyer-modern-day-ruby-warrior/">http://rubylearning.com/blog/2010/10/06/gem-sawyer-modern-day-ruby-warrior/</a></li>
+<li><a href="http://guides.rubygems.org/make-your-own-gem/">http://guides.rubygems.org/make-your-own-gem/</a></li>
+<li><a href="http://devcenter.heroku.com/articles/static-sites-on-heroku">http://devcenter.heroku.com/articles/static-sites-on-heroku</a></li>
+<li><a href="http://www.w3schools.com/json/default.asp">http://www.w3schools.com/json/default.asp</a></li>
+<li><a href="https://github.com/karlseguin/the-little-mongodb-book">https://github.com/karlseguin/the-little-mongodb-book</a></li>
+<li><a href="http://rubylearning.com/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/">http://rubylearning.com/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/</a></li>
+<li><a href="http://api.mongodb.org/ruby/current/file.TUTORIAL.html">http://api.mongodb.org/ruby/current/file.TUTORIAL.html</a></li>
+</ul>
+
+</div>
+</body>
+</html>
