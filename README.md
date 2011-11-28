@@ -19,6 +19,13 @@ Contributing to this project
 
 
 
+
+Review the course notes
+-----------------------
+http://intermediateruby.heroku.com/
+
+
+
 Acknowledgments
 ---------------
 
