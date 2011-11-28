@@ -13,3 +13,8 @@ h2 {
 h2, p {
   margin-left: 120px;
 }
+.post-footer {
+  background-color: #FAFAFA;
+  padding: 5px; margin-top: 20px;
+  font-size: 95%;
+}
