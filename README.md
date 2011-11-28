@@ -31,3 +31,5 @@ Acknowledgments
 
 * Oto Brglez ( https://github.com/otobrglez ) for the note on "*Using Nokogiri*"
 * Michael Kohl ( https://github.com/citizen428 ) for proof reading and making relevant corrections to chapters 1 and 2.
+* Al Snow ( https://github.com/jasnow ) for his various suggestions.
+* Victor Goff ( https://github.com/kotp ) for his various suggestions.
