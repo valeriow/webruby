@@ -45,6 +45,23 @@ run lambda { |env|
 
 <p>This assumes that your template uses relative references to the images and stylesheets.</p>
 
+<p><b>Note</b>: In case you have other .html files in your <code>public</code> folder like chapter1.html and chapter2.html, then change the above code as follows:</p>
+<pre>use Rack::Static,
+  :urls => ["/stylesheets", "/images", "/chapter1.html", "/chapter2.html"],
+  :root => "public"
+
+run lambda { |env|
+  [
+    200,
+    {
+      'Content-Type'  => 'text/html',
+      'Cache-Control' => 'public, max-age=86400'
+    },
+    File.open('public/index.html', File::RDONLY)
+  ]
+}
+</pre>
+
 <p>All Heroku apps are fronted by <code>Varnish</code>, an HTTP Accelerator, and we should take advantage of it. You may have noticed in the <code>config.ru</code> file we set the <code>Cache-Control</code> header to 86400 seconds (24 hours). This tells the accelerator to go ahead and cache the page. The accelerator already caches any <code>Rack::File</code> for 12 hours as well meaning all your stylesheets and images will also be cached.</p>
 
 <p>Open a Bash shell in the folder <code>DosaSite</code> and type:</p>
