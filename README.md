@@ -1,5 +1,5 @@
-Preparing the Core Ruby participants for the web
-================================================
+Preparing the Core Ruby course participants for the web
+=======================================================
 
 RubyLearning.org is planning a *free, online course* on topics that hopefully will help those that have some knowledge of Ruby programming to get started with web programming - call it "*Intermediate Ruby Programming*". This does not cover Ruby on Rails. 
 
