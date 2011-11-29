@@ -161,7 +161,7 @@ puts Net::HTTP.get(uri) # => String
 
 <p>The <code>Net::HTTP.get_response(uri)</code> sends a <code>GET</code> request to the target and returns the HTTP response as a <code>Net::HTTPResponse</code> object. The target is specified as (uri). We can use the <code>code</code> and <code>message</code> methods to return the response data.</p>
 
-<p>The <code>Net::HTTP.get(uri)</code> performs an HTTP <code>GET</code> request for <code>text.txt</code>. This file's contents are then returned and displayed. If you load the URL http://rubylearning.com/data/text.txt in your web browser, you'll get the same response as Ruby.</p>
+<p>The <code>Net::HTTP.get(uri)</code> performs an HTTP <code>GET</code> request for <code>text.txt</code>. This file's contents are then returned and displayed. If you load the URL <a href="http://rubylearning.com/data/text.txt">http://rubylearning.com/data/text.txt</a> in your web browser, you'll get the same response as Ruby.</p>
 
 
 <p>The <a href="http://www.ruby-doc.org/stdlib-1.9.3/libdoc/net/http/rdoc/Net/HTTP.html#method-i-start">Net::HTTP.start</a> method opens a TCP connection and HTTP session. When this method is called with a block, it passes the <code>Net::HTTP</code> object to the block, and closes the TCP connection and HTTP session after the block has been executed.</p>
@@ -194,7 +194,7 @@ puts f.readlines.join
 <h3>Using Hpricot</h3>
 <p>The <b>Hpricot</b> library is not part of Ruby but is very popular. Hpricot is a very rich Ruby library designed to make HTML parsing fast, easy, and fun. We'll only scratch the surface here.</p>
 <p>To install Hpricot, open a new command window and type:</p>
-<pre>gem install hpricot
+<pre>$ gem install hpricot
 </pre>
 
 <p>Hpricot can work directly with <code>open-uri</code> to load HTML from remote files.</p>
@@ -212,7 +212,7 @@ puts "Page title is: " + page.at(:title).inner_html
 <p>Another library worth looking into is <a href="http://nokogiri.org/">Nokogiri</a>. Nokogiri is a <a href="http://www.wikipedia.org/wiki/HTML">HTML</a>, <a href="http://www.wikipedia.org/wiki/XML">XML</a>, <a href="http://www.wikipedia.org/wiki/XML#Simple_API_for_XML_.28SAX.29">SAX</a> parser/reader with the ability to search documents via <a href="http://www.wikipedia.org/wiki/XPath">XPath</a> or <a href="http://www.wikipedia.org/wiki/CSS3#CSS_3">CSS3</a> selectors.</p>
 
 <p>You can install Nokogiri with the following command:</p>
-<pre>gem install nokogiri
+<pre>$ gem install nokogiri
 </pre>
 
 <h4>Fetching documents from web</h4>
@@ -239,6 +239,10 @@ doc.xpath("//h2[@id='slogan']").first.content
 doc.css("#footer p strong:first-child")[0].content
 # output: "RubyLearning.com - A Ruby Tutorial"
 </pre>
+
+<h2>Exercise 3</h2>
+<p>WIP...</p>
+
       <p>
 	    <strong>
 	    <a href="chapter2.html">&lt;Chapter 2 | </a>
