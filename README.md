@@ -19,7 +19,6 @@ Contributing to this project
 
 
 
-
 Review the course notes
 -----------------------
 http://intermediateruby.heroku.com/
@@ -34,3 +33,9 @@ Acknowledgments
 * Oto Brglez ( https://github.com/otobrglez ) for the note on "*Using Nokogiri*"
 * Victor Goff ( https://github.com/kotp ) for his various suggestions.
 * Zhang Hailong ( https://github.com/zhhailon ) for making relevant corrections in chapter 2.
+
+
+About RubyLearning.org
+----------------------
+
+RubyLearning.org ( http://rubylearning.org/ ), since 2005, has been helping Ruby Newbies go from zero to awesome!
