@@ -1,27 +1,101 @@
-html { font-family: Georgia, Palatino, serif; font-size: 12pt; }
-.title  { text-align: center; }
-body {
-      margin: 0 auto;
-      color: #222;
-      padding: 30px;
-      width: 90%;
+/*--------------------*\
+	LAYOUT
+\*--------------------*/
+html {
+	width: 960px;
 }
-.code-highlighted {background-color:#ffff00;}
-.org-info-js_info-navigation { border-style:none; }
-#org-info-js_console-label { font-size:10px; font-weight:bold;
-			     white-space:nowrap; }
-.org-info-js_search-highlight {background-color:#ffff00; color:#000000;
-			       font-weight:bold; }
+
+/*--------------------*\
+	TYPOGRAPHY
+\*--------------------*/
+body{
+	font: normal 1em/1.5em Baskerville, Georgia, Palatino, serif;
+	margin: 10 auto;
+	color: #222;
+	padding: 30px;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: Baskerville, Georgia, Palatino, serif;
+	font-weight: normal;
+}
+h1{
+	font-size: 218%;
+}
+h2{
+	font-size: 164%;
+}
+h3{
+	font-size: 145%;
+}
+h4{
+	font-size: 118%;
+}
 a {
-      color: #0099ff;
-      text-decoration: none;
+	color: #0099ff;
+	text-decoration: none;
 }
-a:hover { text-decoration: underline; }
+a:hover { 
+	text-decoration: underline; 
+}
+
+/*--------------------*\
+	HEADING STYLE
+\*--------------------*/
+.title { 
+	color:#C82536;
+	text-align: right;
+	font-variant: small-caps;
+	letter-spacing:2px; 
+}
+
+hr{
+	border: 0;
+	color: #ccc;
+	background-color: #ccc;
+	height: 2px;
+}
+/*--------------------*\
+	TABLE OF CONTENTS
+\*--------------------*/
+#table-of-contents p:first-child > b:before{
+	content: '\261E';
+	margin: 0px 10px 0 10px;
+	font-size: 2em;
+	color:#C82536;
+}
+
+/*--------------------*\
+	CODE
+\*--------------------*/
 code {
-      font-family: Consolas, Monaco, Andale Mono, monospace;
-      font-size: 13px;
-      line-height: 1.5;
+	font-family: Consolas, Monaco, Andale Mono, monospace;
+	font-size: 13px;
+	line-height: 1.5em;
+	background-color: #eee;
+	padding: 5px 5px;
 }
 pre {
-      overflow: auto;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: #eee;
+}
+/*--------------------*\
+	MISC
+\*--------------------*/
+
+.code-highlighted {
+	background-color:#ffff00;
+}
+.org-info-js_info-navigation { 
+	border-style:none; 
+}
+#org-info-js_console-label { 
+	font-size:10px; 
+	font-weight:bold;
+	white-space:nowrap; 
+}
+.org-info-js_search-highlight {
+	background-color:#ffff00; 
+	color:#000000;
+	font-weight:bold; 
 }
