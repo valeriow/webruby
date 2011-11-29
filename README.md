@@ -21,8 +21,8 @@ Contributing to this project
 
 Review the course notes
 -----------------------
-http://intermediateruby.heroku.com/
 
+http://satishtalim.github.com/webruby/
 
 
 Acknowledgments
