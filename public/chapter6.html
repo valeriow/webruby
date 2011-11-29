@@ -49,6 +49,15 @@ git config --global user.email "Your email id"
 </pre>
 <p>You'll be prompted for your username and password the first time you run a heroku command; they'll be saved on ~/.heroku/credentials so you won't be prompted on future runs. It will also upload your public key to allow you to push and pull code.</p>
 
+<h4>Install Bundle</h4>
+<p>In the already open command window, we will install bundler. Type:</p>
+<pre>gem install bundler
+</pre>
+
+<p>Close the command window.</p>
+<p>Bundle allows you to bundle your gems (both pure-ruby and native) with your application.</p>
+
+<h4>Deploy your app to Heroku</h4>
 <p>In order for Heroku to know what to do with your Rack app, create a <code>config.ru</code> (ru stands for Rack up) in the <code>rackheroku</code> folder. The contents are:</p>
 <pre>require './my_app'
 run MyApp.new
@@ -63,11 +72,7 @@ class MyApp
 end
 </pre>
 
-<p>In the already open command window, we will install bundler. Type:</p>
-<pre>gem install bundler
-</pre>
-
-<p>Close the command window. Next, we will install the required gems (if any) via bundler. In the already open Git Bash shell for folder <code>rackheroku</code> type:</p>
+<p>Next, we will install the required gems (if any) via bundler. In the already open Git Bash shell for folder <code>rackheroku</code> type:</p>
 <pre>$ bundle init
 Writing new Gemfile to c:/rackheroku/Gemfile
 </pre>
