@@ -29,7 +29,8 @@ http://intermediateruby.heroku.com/
 Acknowledgments
 ---------------
 
-* Oto Brglez ( https://github.com/otobrglez ) for the note on "*Using Nokogiri*"
-* Michael Kohl ( https://github.com/citizen428 ) for proof reading and making relevant corrections to chapters 1 and 2.
 * Al Snow ( https://github.com/jasnow ) for his various suggestions.
+* Michael Kohl ( https://github.com/citizen428 ) for proof reading and making relevant corrections to chapters 1 and 2.
+* Oto Brglez ( https://github.com/otobrglez ) for the note on "*Using Nokogiri*"
 * Victor Goff ( https://github.com/kotp ) for his various suggestions.
+* Zhang Hailong ( https://github.com/zhhailon ) for making relevant corrections in chapter 2.
