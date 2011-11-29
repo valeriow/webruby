@@ -1,18 +1,10 @@
-/* top elements */
-/* To make the content reach the edges of the browser window, we set the
-   margin and padding of the body and html elements to zero                
-   The universal selector (*) matches every element in the document.       */
-* {
-  margin: 0; padding: 0; /* sets 0 margin and 0 padding on everything      */
-} 
 html { font-family: Georgia, Palatino, serif; font-size: 12pt; }
-body {
-  margin: 0; padding: 0;
-  color: #333333;            /* Text color Black                           */
-  background-color: #FFFFFF; /* White  #222;                               */
-  text-align: center;   
-}
 .title  { text-align: center; }
+body {
+      margin: 0 auto;
+      color: #222;
+      padding: 30px;
+}
 .code-highlighted {background-color:#ffff00;}
 .org-info-js_info-navigation { border-style:none; }
 #org-info-js_console-label { font-size:10px; font-weight:bold;
