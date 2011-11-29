@@ -4,6 +4,7 @@ body {
       margin: 0 auto;
       color: #222;
       padding: 30px;
+      width: 90%;
 }
 .code-highlighted {background-color:#ffff00;}
 .org-info-js_info-navigation { border-style:none; }
@@ -20,4 +21,11 @@ code {
       font-family: Consolas, Monaco, Andale Mono, monospace;
       font-size: 13px;
       line-height: 1.5;
+<<<<<<< HEAD
 }
+=======
+}
+pre {
+      overflow: auto;
+}
+>>>>>>> 29750b8e2475628c045a917459977d6ad5c53d34
