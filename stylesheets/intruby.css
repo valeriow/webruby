@@ -37,14 +37,7 @@ a {
 a:hover { 
 	text-decoration: underline; 
 }
-code {
-      font-family: Consolas, Monaco, Andale Mono, monospace;
-      font-size: 13px;
-      line-height: 1.5em;
-}
-pre {
-      overflow: auto;
-}
+
 /*--------------------*\
 	HEADING STYLE
 \*--------------------*/
@@ -70,11 +63,25 @@ hr{
 	font-size: 2em;
 	color:#C82536;
 }
+
+/*--------------------*\
+	CODE
+\*--------------------*/
+code {
+	font-family: Consolas, Monaco, Andale Mono, monospace;
+	font-size: 13px;
+	line-height: 1.5em;
+	background-color: #eee;
+	padding: 5px 5px;
+}
+pre {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: #eee;
+}
 /*--------------------*\
 	MISC
 \*--------------------*/
-
-
 
 .code-highlighted {
 	background-color:#ffff00;
