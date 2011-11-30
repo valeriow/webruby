@@ -31,6 +31,7 @@ Acknowledgments
 * Al Snow ( https://github.com/jasnow ) for his various suggestions.
 * Michael Kohl ( https://github.com/citizen428 ) for proof reading and making relevant corrections to chapters 1 and 2.
 * Oto Brglez ( https://github.com/otobrglez ) for the note on "*Using Nokogiri*"
+* Punjab ( https://github.com/punjab ) for beautifying the css and for the note on "*Using RVM*"
 * Victor Goff ( https://github.com/kotp ) for his various suggestions.
 * Willian Molinari ( https://github.com/PotHix ) for creating the GitHub page for this project.
 * Zhang Hailong ( https://github.com/zhhailon ) for making relevant corrections in chapter 2.
