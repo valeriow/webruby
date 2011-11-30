@@ -26,10 +26,7 @@ http://satishtalim.github.com/webruby/
 Sponsors
 --------
 
-We are looking for companies / individuals who are willing to sponsor this course. Any amount that you are comfortable with is most welcome.
-http://www.pledgie.com/campaigns/16357
-
-If the above link does not work, you can pay directly to my Paypal id i.e. satish.talim@gmail.com
+Support us by making a donation of whatever amount you find suitable, so that people from across the globe can learn Ruby programming for free. There are costs involved in developing course-ware, writing eBooks, hosting and maintaining the site and over time it gets expensive. Pay to satish.talim@gmail.com by Paypal.
 
 
 Acknowledgments
