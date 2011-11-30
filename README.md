@@ -10,7 +10,6 @@ The course is scheduled for 7th Jan. 2012 and we would have 3-4 mentors helping 
 Can you help?
 
 
-
 Contributing to this project
 ----------------------------
 
@@ -18,11 +17,17 @@ Contributing to this project
 * You can just fork the repo and add things relevant to web programming in Ruby. Michael or Satish can commit your pull requests.
 
 
-
 Review the course notes
 -----------------------
 
 http://satishtalim.github.com/webruby/
+
+
+Sponsors
+--------
+
+We are looking for companies / individuals who are willing to sponsor this course. Any amount that you are comfortable with is most welcome.
+http://www.pledgie.com/campaigns/16357
 
 
 Acknowledgments
