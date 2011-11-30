@@ -29,6 +29,8 @@ Sponsors
 We are looking for companies / individuals who are willing to sponsor this course. Any amount that you are comfortable with is most welcome.
 http://www.pledgie.com/campaigns/16357
 
+If the above link does not work, you can pay directly to my Paypal id i.e. satish.talim@gmail.com
+
 
 Acknowledgments
 ---------------
