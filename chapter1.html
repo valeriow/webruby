@@ -146,26 +146,27 @@ $ git push origin master
       <p>We shall be using Git and GitHub throught this course.</p>
 
 			<h2>Using RVM</h2>
-			<p>One of the problems that many new-bees in a language face while following while following a book or tutorial is the problem on dealing with different versions of the language e.g. version 1.8.7 and version 1.9.2 in the case of Ruby. If you are running Linux or OS X, do not worry - we got <code>rvm</code> power!</p>
-			
+<p><b>Credit:</b> <a href="https://github.com/punjab">Punjab</a></p>
+			<p>One of the problems that many newbies in a language face while following a book or tutorial is the problem of dealing with different versions of the language e.g. version 1.8.7 and version 1.9.2 in the case of Ruby. If you are running <b>Linux or OS X</b>, do not worry - we have got <code>rvm</code> power!</p>
+
 			<h3>What is RVM?</h3>
-			<p><a href="http://beginrescueend.com/" title="RVM: Ruby Version Manager">Ruby enVironment (Version) Manager (RVM)</a> is a command-line tool developed by <a href="https://github.com/wayneeseguin">Wayne E. Seguin</a> which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems. You can install and separately manage more than one Ruby interpreter including MRI, JRuby and the kind.</p>
-			
-			<h3>Prerequisites</h3>
-			<p>Most Linux/OS X using bash will have the necessary tools, including git - required to install RVM. However you can check the location of installed tools typing this on your <code>bash</code> prompt.</p>
-<pre>for name in {bash,awk,sed,grep,ls,cp,tar,curl,gunzip,bunzip2,git,svn} ; do which $name ;  done
+			<p><a href="http://beginrescueend.com/" title="RVM: Ruby Version Manager">Ruby enVironment (Version) Manager (RVM)</a> is a command-line tool developed by <a href="https://github.com/wayneeseguin">Wayne E. Seguin</a> which allows you to easily install, manage, and work with multiple Ruby environments from interpreters to sets of gems. You can install and separately manage more than one Ruby interpreter including MRI, JRuby and the kind.</p>
+
+			<h3>Pre-requisites</h3>
+			<p>Most Linux/OS X using <code>bash</code> will have the necessary tools, including <code>git</code> - required to install RVM. However you can check the location of installed tools by typing this at your <code>bash</code> prompt:</p>
+<pre>for name in {bash,awk,sed,grep,ls,cp,tar,curl,gunzip,bunzip2,git,svn} ; do which $name ; done
 </pre>
 			<p>If any of the tool is missing, you may install the missing package using <code>apt-get</code> in Linux or using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on OS X.</p>
-			
+
 			<h3>Installing RVM</h3>
-			<p>The simplest way to install rvm is using <code>rvm-installer</code> script by typing the following on your <code>bash</code> prompt:</p>
-			
+			<p>The simplest way to install <code>rvm</code> is using the <code>rvm-installer</code> script, by typing the following at your <code>bash</code> prompt:</p>
+
 <pre>bash &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 </pre>
 			<p>If you don't trust the installer script, you can follow the instructions given <a href="http://beginrescueend.com/rvm/install/">here</a> and download and inspect the script before installing.</p>
-			
+
 			<h3>Loading RVM into your shell</h3>
-			<p>To make sure you can use rvm as a function or command from your bash shell, add the following at the end of your <code>.bash_profile</code> file located in your home folder.</p>
+			<p>To make sure you can use <code>rvm</code> as a function or command from your <code>bash</code> shell, add the following at the end of your <code>.bash_profile</code> file located in your home folder.</p>
 <pre>echo '[[ -s &quot;$HOME/.rvm/scripts/rvm&quot; ]] &amp;&amp; . &quot;$HOME/.rvm/scripts/rvm&quot; # Load RVM function' &gt;&gt; ~/.bash_profile
 </pre>
 
@@ -173,30 +174,30 @@ $ git push origin master
 			<p>The simplest way to reload a shell is to close and restart it. If you are lazy like me and don't want to do that, try reloading your <code>.bash_profile</code></p>
 <pre>source .bash_profile
 </pre>
-			<p>Now lets test if all went well</p>
+			<p>Now let's test if all went well:</p>
 <pre>type rvm | head -1
 </pre>
-			<p>If all went well, you should see this response</p>
+			<p>If all went well, you should see this response:</p>
 <pre>rvm is a function
 </pre>
-			
-			<h3>Install a ruby interpreter</h3>
-			<p>To see a list of Ruby interpreters available to us, run this command</p>
+
+			<h3>Install a Ruby interpreter</h3>
+			<p>To see a list of Ruby interpreters available to us, run this command:</p>
 <pre>rvm list known
 </pre>
 			<p>You should see a list of Ruby interpreters available to be installed. For the purpose of this class, we'll install Ruby 1.9.2</p>
-			
+
 <pre>rvm install 1.9.2
 </pre>
-			<p>Once the installation completes, lets give this new ruby a spin</p>
+			<p>Once the installation completes, let's give this new Ruby a spin:</p>
 <pre>rvm use 1.9.2
 ruby -v
 </pre>
-			<p>You should see something like following depending on your OS and installed version.</p>
-			
+			<p>You should see something like the following depending on your OS and installed version:</p>
+
 <pre>ruby 1.9.2p290 (2011-07-09 revision 32553) [x86_64-darwin10.8.0]
 </pre>
-			<p>To load this version as our default version of Ruby, run the following command</p>
+			<p>To load this version as our default version of Ruby, run the following command:</p>
 <pre>rvm use 1.9.2 --default
 </pre>
 			<p>Thats all! Enjoy creating fun in Ruby.</p>
