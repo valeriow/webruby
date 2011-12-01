@@ -145,7 +145,7 @@ $ git push origin master
 
       <p>We shall be using Git and GitHub throught this course.</p>
 
-			<h2>Using RVM</h2>
+			<h2>Using RVM (for *nix)</h2>
 <p><b>Credit:</b> <a href="https://github.com/punjab">Punjab</a></p>
 			<p>One of the problems that many newbies in a language face while following a book or tutorial is the problem of dealing with different versions of the language e.g. version 1.8.7 and version 1.9.2 in the case of Ruby. If you are running <b>Linux or OS X</b>, do not worry - we have got <code>rvm</code> power!</p>
 
@@ -201,6 +201,87 @@ ruby -v
 <pre>rvm use 1.9.2 --default
 </pre>
 			<p>Thats all! Enjoy creating fun in Ruby.</p>
+
+<h2>Using pik (for Windows)</h2>
+<h3>What's pik?</h3>
+<p>Pik is a tool to manage multiple versions of Ruby on Windows. It can be used from the Windows command line (cmd.exe) or Git Bash.</p>
+
+<h3>Installing pik</h3>
+
+<p>My machine already has Ruby 1.9.3 installed which means I can install pik via RubyGems. If you don't already have Ruby, the README file on GitHub has a section called "<a href="https://github.com/vertiginous/pik">Install pik using the installer</a>" which I recommend you follow.</p>
+<pre>gem install pik
+</pre>
+
+<p>After downloading the gem, you need to install pik into a directory on your machine. This can be anywhere, apart from where you already have Ruby installed.</p>
+<pre>mkdir pik
+</pre>
+
+<p>You need to include the directory used above in your %PATH% system environment variable before the location of any existing Ruby installation. I put it at the start.</p>
+
+<p>When installing, simply specify the directory you picked.</p>
+<pre>pik_install c:\pik
+<pre>
+<p>After which, you will have three files in the folder. This is everything required for pik.</p>
+<pre>01-Dec-11  09:25 AM               119 pik.bat
+01-Dec-11  09:25 AM               145 pik.ps1
+01-Dec-11  09:25 AM           694,272 pik_runner.exe
+</pre>
+
+<h3>Using pik</h3>
+<p>Executing <code>pik add</code>, adds all the Ruby locations to pik.</p>
+<pre>pik add
+** Adding:  193: ruby 1.9.3p0 (2011-10-30) [i386-mingw32]
+ Located at:  C:\Ruby193\bin
+* 193: ruby 1.9.3p0 (2011-10-30) [i386-mingw32]
+</pre>
+
+<p>Executing <code>pik list</code> outputs all the Ruby installations it knows about.</p>
+<pre>pik list
+* 193: ruby 1.9.3p0 (2011-10-30) [i386-mingw32]
+</pre>
+
+<p>Executing <code>pik install [options]</code> downloads and installs different Ruby versions. Choices are: ruby, jruby, or ironruby. If no version is specified, the latest version will be installed.</p>
+
+<p>Download and install locations can be configured with <code>pik config</code>. Examples:</p>
+<pre># install the latest version of JRuby (currently 1.4.0RC1)
+pik install jruby
+
+# install the latest 1.8 version of MinGW Ruby
+pik install ruby 1.8
+<pre>
+
+<p>Using pik, I installed jruby:</p>
+<pre>pik install jruby
+** Downloading:  http://jruby.org.s3.amazonaws.com/downloads/1.6.5/jruby-bin-1.6.5.zip
+   to:  C:\Users\TALIM\.pik\downloads\jruby-bin-1.6.5.zip
+</pre>
+
+<p>I extracted the jruby-bin-1.6.5.zip file and installed jruby.</p>
+<p>I now need to tell pik about my installation by pointing it at the bin directory. That's it.</p>
+<pre>pik add C:\jruby-1.6.5\bin
+** Adding:  165: jruby 1.6.5 (ruby-1.8.7-p330) (2011-10-25 9dcd388) (Java HotSpot(TM) Client VM 1.6.0_29) [Windows 7-x86-java]
+ Located at:  C:\jruby-1.6.5\bin
+</pre>
+
+<p>If you <code>list pik</code>, then you can see all the different versions installed:</p>
+<pre>pik list
+  165: jruby 1.6.5 (ruby-1.8.7-p330) (2011-10-25 9dcd388) (Java HotSpot(TM)...
+* 193: ruby 1.9.3p0 (2011-10-30) [i386-mingw32]
+</pre>
+
+<p>You can then switch to the particular version you want, for example originally I was running 1.9.3.</p>
+<pre>E:\pik>ruby -v
+ruby 1.9.3p0 (2011-10-30) [i386-mingw32]
+</pre>
+
+<p>But I can then switch to 1.6.5 with a simple command.</p>
+<pre>pik switch 165
+ruby -v
+'ruby' is not recognized as an internal or external command, operable program or batch file.
+jruby -v
+jruby 1.6.5 (ruby-1.8.7-p330) (2011-10-25 9dcd388) (Java HotSpot(TM) Client VM 1.6.0_29) [Windows 7-x86-java]
+</pre>
+
 
       <h2>Exercise 1</h2>
       <p>Please create and post the URL of your GitHub repo in the relevant forum, when the course starts.</p>
