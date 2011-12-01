@@ -108,3 +108,25 @@ pre {
 	color:#000000;
 	font-weight:bold; 
 }
+
+/*--------------------*\
+	PAYPAL
+\*--------------------*/
+#paypal form:before{
+	content: '\261F - Show some \2665';
+	color:#C82536;
+	font-size: 1.5em;
+	padding: 10px 30px;
+}
+
+#paypal{
+	margin: 20px 100px;
+	padding: 20px 50px;
+	border: 1px solid #C82536;
+	-moz-border-radius: 1em 1em 1em 1em;
+	-webkit-border-radius: 1em 1em 1em 1em;
+	border-radius: 1em 1em 1em 1em;
+	-moz-box-shadow: 5px 5px 5px #aaa;
+  	-webkit-box-shadow: 5px 5px 5px #aaa;
+  	box-shadow: 5px 5px 5px #aaa;
+}
