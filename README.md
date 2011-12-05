@@ -28,7 +28,7 @@ Sponsors
 
 Support us by making a donation of whatever amount you find suitable, so that people from across the globe can learn Ruby programming for free. There are costs involved in developing course-ware, writing eBooks, hosting and maintaining the site and over time it gets expensive. Pay to satish.talim@gmail.com by Paypal.
 
-We have so far collected US$ 10 only.
+We have so far collected US$ 50 only.
 
 
 Acknowledgments
