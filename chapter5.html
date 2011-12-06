@@ -215,6 +215,22 @@ run MyApp.new
 <pre>Hello Rack Participants
 </pre>
 <p>Press <b>Ctrl-C</b> to stop the <b>WEBrick</b> server.</p>
+
+<h4>Using Lobster</h4>
+<p>Rack comes with little funny web application called "Lobster", that can be used as a demo.</p>
+<p>Let us create a <code>config.ru</code> file that contains the following:</p>
+<pre># config.ru
+require 'rack'
+require 'rack/lobster'
+run Rack::Lobster.new
+</pre>
+<p>To run our rack app, in the same folder that contains <code>config.ru</code>, type:</p>
+<pre>$ rackup config.ru
+</pre>
+<p>Open a browser window and type the url: <a href="http://localhost:9292/">http://localhost:9292/</a>. You will see a lobster drawing!</p>
+
+
+
       <p>
 	    <strong>
 	    <a href="chapter4.html">&lt;Chapter 4 | </a>
