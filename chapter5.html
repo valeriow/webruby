@@ -27,6 +27,7 @@
 <p>HTTP is a simple protocol: it basically describes the activity of a client sending a HTTP request to a server and the server returning a HTTP response. Both HTTP request and HTTP response in turn have very similar structures. A HTTP request is a triplet consisting of a method and resource pair, a set of headers and an optional body while a HTTP response is in triplet consisting of a response code, a set of headers and an optional body.</p>
 
 <p>Rack maps closely to this. A Rack application is a Ruby object that has a <code>call</code> method, which has a single argument, the <em>environment</em>, (corresponding to a HTTP request) and returns an array of 3 elements, <em>status</em>, <em>headers</em> and <em>body</em> (corresponding to a HTTP response).</p>
+<p>That's the Rack specification in a nutshell. You can check out the full details <a href="http://rack.rubyforge.org/doc/files/SPEC.html">here</a>. <b>Strictly speaking, you don't need the rack gem in order to write Rack ready applications</b>. Just stick to the specification and that's it.</p>
 
 <p>Rack includes <em>handlers</em> that connect Rack to all these web application servers (WEBrick, Mongrel etc.).</p>
 
@@ -41,25 +42,8 @@
 <h3>Rack Documentation</h3>
 <p><a href="http://rack.rubyforge.org/doc/">http://rack.rubyforge.org/doc/</a></p>
 
-<h3>Installing Rack</h3>
-
-<p>Note that I have Ruby 1.9.3 installed on a Windows box and all the programs in this article have been tested using that.</p>
-<p>Let's check if we already have rack with us. Open a command window and type:</p>
-<pre>irb --simple-prompt
-&gt;&gt; require 'rack'
-=> true
-&gt;&gt;
-</pre>
-
-<p>Yes, rack's already there on your machine. If rack's not there you will get an error like:
-<pre>LoadError: no such file to load -- rack
-</pre>
-
-<p>You can install rack by opening a new command window and typing:</p>
-<pre>gem install rack
-</pre>
-
 <h3>A quick visit to Ruby's proc object</h3>
+<p>Note that I have Ruby 1.9.3 installed on a Windows box and all the programs in this article have been tested using that.</p>
 <p>Remember the <a href="http://rubylearning.com/satishtalim/ruby_procs.html">proc object from Ruby</a>? <em>Blocks are not objects</em>, but they can be converted into objects of class <code>Proc</code>. This can be done by calling the <code>lambda</code> method of the class <code>Object</code>. A block created with <code>lambda</code> acts like a Ruby method. The class <code>Proc</code> has a method <code>call</code> that invokes the block.</p>
 
 <p>In irb type:</p>
@@ -96,7 +80,26 @@ Rack Intro
 &gt;&gt;
 </pre>
 
-<p>We can run our Rack application (<b>my_rack_proc</b>) with any of the Rack handlers.</p>
+<h3>Installing Rack gem</h3>
+<p>Rack gem is a collection of utilities and facilitating classes, to make life easier for anyone developing Rack applications. It includes basic implementations of request, response, cookies, sessions and a good number of usefult middlewares.</p>
+
+<p>Let's check if we already have rack with us. Open a command window and type:</p>
+<pre>irb --simple-prompt
+&gt;&gt; require 'rack'
+=> true
+&gt;&gt;
+</pre>
+
+<p>Yes, rack's already there on your machine. If rack's not there you will get an error like:
+<pre>LoadError: no such file to load -- rack
+</pre>
+
+<p>You can install rack by opening a new command window and typing:</p>
+<pre>gem install rack
+</pre>
+
+
+<p>We can run our previously written Rack application (<b>my_rack_proc</b>) with any of the Rack handlers.</p>
 <p>To look at the Rack handlers available, in irb type:</p>
 
 <pre>&gt;&gt; Rack::Handler.constants
