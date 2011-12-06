@@ -15,7 +15,7 @@
 	    </strong>
       </p>
 
-<h1 class="title">Day 5</h1>
+<h1 class="title">Day 5 - Spend more time here, today!</h1>
 <h2>Learning Rack</h2>
 <h3>What's Rack?</h3>
 <p>In the words of the author of Rack - <b>Christian Neukirchen</b>: Rack aims to provide a minimal API for connecting web servers supporting Ruby (like WEBrick, Mongrel etc.) and Ruby web frameworks (like Rails, Sinatra etc.).</p>
@@ -43,7 +43,7 @@
 
 <h3>Installing Rack</h3>
 
-<p>Note that I have Ruby 1.9.2 installed on a Windows box and all the programs in this article have been tested using that.</p>
+<p>Note that I have Ruby 1.9.3 installed on a Windows box and all the programs in this article have been tested using that.</p>
 <p>Let's check if we already have rack with us. Open a command window and type:</p>
 <pre>irb --simple-prompt
 &gt;&gt; require 'rack'
@@ -113,7 +113,7 @@ Rack Intro
 
 <pre>&gt;&gt; Rack::Handler::WEBrick.run my_rack_proc
 [2011-10-24 10:00:45] INFO WEBrick 1.3.1
-[2011-10-24 10:00:45] INFO ruby 1.9.2 (2011-07-09) [i386-mingw32]
+[2011-10-24 10:00:45] INFO ruby 1.9.3 (2011-07-09) [i386-mingw32]
 [2011-10-24 10:00:45] INFO WEBrick::HTTPServer#start: pid=1788 port=80
 </pre>
 <p>Open a browser window and type the url: <a href="http://localhost/">http://localhost/</a></p>
@@ -125,7 +125,7 @@ Rack Intro
 <p><b>Note</b>: If you already have something running at port 80, you can run this app at a different port, say 9876. Type:</p>
 <pre>&gt;&gt; Rack::Handler::WEBrick.run my_rack_proc, :Port => 9876
 [2011-10-24 11:32:21] INFO  WEBrick 1.3.1
-[2011-10-24 11:32:21] INFO  ruby 1.9.2 (2011-07-09) [i386-mingw32]
+[2011-10-24 11:32:21] INFO  ruby 1.9.3 (2011-07-09) [i386-mingw32]
 [2011-10-24 11:32:21] INFO  WEBrick::HTTPServer#start: pid=480 port=9876
 </pre>
 <p>Open a browser window and type the url: <a href="http://localhost:9876/">http://localhost:9876/</a></p>
@@ -147,7 +147,7 @@ Rack Intro
 <p>Next type:</p>
 <pre>&gt;&gt; Rack::Handler::WEBrick.run method(:my_method)
 [2011-10-24 14:32:05] INFO  WEBrick 1.3.1
-[2011-10-24 14:32:05] INFO  ruby 1.9.2 (2011-07-09) [i386-mingw32]
+[2011-10-24 14:32:05] INFO  ruby 1.9.3 (2011-07-09) [i386-mingw32]
 [2011-10-24 14:32:05] INFO  WEBrick::HTTPServer#start: pid=1644 port=80
 </pre>
 <p>Open a browser window and type the url: <a href="http://localhost/">http://localhost/</a></p>
@@ -179,7 +179,7 @@ Rack Intro
 <p>To run our rack app, in the same folder that contains config.ru, type:</p>
 <pre>$ rackup config.ru
 [2011-10-24 15:18:03] INFO WEBrick 1.3.1
-[2011-10-24 15:18:03] INFO ruby 1.9.2 (2011-07-09) [i386-mingw32]
+[2011-10-24 15:18:03] INFO ruby 1.9.3 (2011-07-09) [i386-mingw32]
 [2011-10-24 15:18:03] INFO WEBrick::HTTPServer#start: pid=3304 port=9292
 </pre>
 
@@ -205,7 +205,7 @@ run MyApp.new
 <p>To run our rack app, in the same folder that contains config.ru, type:</p>
 <pre>rackup config.ru
 [2011-10-25 06:18:16] INFO  WEBrick 1.3.1
-[2011-10-25 06:18:16] INFO  ruby 1.9.2 (2011-07-09) [i386-mingw32]
+[2011-10-25 06:18:16] INFO  ruby 1.9.3 (2011-07-09) [i386-mingw32]
 [2011-10-25 06:18:16] INFO  WEBrick::HTTPServer#start: pid=2224 port=9292
 </pre>
 
