@@ -100,7 +100,7 @@ Rack Intro
 
 
 <p>We can run our previously written Rack application (<b>my_rack_proc</b>) with any of the Rack handlers.</p>
-<p>To look at the Rack handlers available, in irb type:</p>
+<p>To look at the Rack handlers available, in the already open irb window type:</p>
 
 <pre>&gt;&gt; Rack::Handler.constants
 => [:CGI, :FastCGI, :Mongrel, :EventedMongrel, :SwiftipliedMongrel, :WEBrick, :LSWS, :SCGI, :Thin]
@@ -232,7 +232,138 @@ run Rack::Lobster.new
 </pre>
 <p>Open a browser window and type the url: <a href="http://localhost:9292/">http://localhost:9292/</a>. You will see a lobster drawing!</p>
 
+<h3>Rack::Builder</h3>
+<p>Under the hood, <code>rackup</code> converts your <code>config.ru</code> script to an instance of <a href="http://rack.rubyforge.org/doc/classes/Rack/Builder.html">Rack::Builder</a>.</p>
+<p><code>Rack::Builder</code> is the thing that glues various Rack middlewares and applications together and converts them into a single entity/rack application. A good analogy is comparing <code>Rack::Builder</code> object with a stack, where at the very bottom is your actual rack application and all middlewares on top of it, and the whole stack itself is a rack application too.</p>
 
+<p>Let us create a <code>config.ru</code> file that contains the following:</p>
+<pre>require 'rack'
+rack_time = Proc.new { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
+Rack::Handler::WEBrick.run rack_time, :Port => 9292
+</pre>
+
+<p>To run our rack app, in the same folder that contains <code>config.ru</code>, type:</p>
+<pre>rackup config.ru
+[2011-10-25 06:18:16] INFO  WEBrick 1.3.1
+[2011-10-25 06:18:16] INFO  ruby 1.9.3 (2011-07-09) [i386-mingw32]
+[2011-10-25 06:18:16] INFO  WEBrick::HTTPServer#start: pid=2224 port=9292
+</pre>
+
+<p>Open a browser window and type the url: <a href="http://localhost:9292/">http://localhost:9292/</a></p>
+
+<p>In your browser window, you should see something like this:</p>
+<pre>Hello. The time is 2011-12-06 11:19:49 +0530
+</pre>
+<p>Press <b>Ctrl-C</b> to stop the <b>WEBrick</b> server.</p>
+
+<p>Let us convert <code>rack_time</code> to use <code>Rack::Builder</code>. We will use the block form of <code>Rack::Builder</code>:</p>
+<pre>require 'rack'
+rack_time = Proc.new { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
+builder = Rack::Builder.new do
+  run rack_time
+end
+Rack::Handler::WEBrick.run rack_time, :Port => 9292
+</pre>
+<p><code>Rack::Builder#run</code> specifies the actual rack application you're wrapping with <code>Rack::Builder</code>.</p>
+<p>Here <code>Rack::Builder#initialize</code> accepts a block argument, which is evaluated within the context of the newly created instance using <code>instance_eval</code>.</p>
+
+<p>To run our rack app, in the same folder that contains <code>config.ru</code>, type:</p>
+<pre>rackup config.ru
+[2011-10-25 06:18:16] INFO  WEBrick 1.3.1
+[2011-10-25 06:18:16] INFO  ruby 1.9.3 (2011-07-09) [i386-mingw32]
+[2011-10-25 06:18:16] INFO  WEBrick::HTTPServer#start: pid=2224 port=9292
+</pre>
+
+<p>Open a browser window and type the url: <a href="http://localhost:9292/">http://localhost:9292/</a></p>
+
+<p>In your browser window, you should see something like this:</p>
+<pre>Hello. The time is 2011-12-06 11:19:49 +0530
+</pre>
+<p>Press <b>Ctrl-C</b> to stop the <b>WEBrick</b> server.</p>
+
+<p><code>Rack::Builder#use</code> adds a middleware to the rack application stack created by <code>Rack::Builder</code>. Rack has many useful middlewares and one of them is <code>Rack::CommonLogger</code>, which logs a single line to the supplied log file in the Apache common log format.</p>
+<p>Let's add <code>Rack::CommonLogger</code> to <code>rack_time</code>:</p>
+<pre>require 'rack'
+require 'logger'
+rack_time = Proc.new { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
+builder = Rack::Builder.new do
+  use Rack::CommonLogger
+  Logger.new('rack.log')
+  run rack_time
+end
+Rack::Handler::WEBrick.run rack_time, :Port => 9292
+</pre>
+<p>We create an explicit logger <code>rack.log</code>. This log file is created in the same folder as <code>config.ru</code> and contains:</p>
+<pre># Logfile created on 2011-12-06 13:54:42 +0530 by logger.rb/31641
+</pre>
+<p>To run our rack app, in the same folder that contains <code>config.ru</code>, type:</p>
+<pre>rackup config.ru
+[2011-10-25 06:18:16] INFO  WEBrick 1.3.1
+[2011-10-25 06:18:16] INFO  ruby 1.9.3 (2011-07-09) [i386-mingw32]
+[2011-10-25 06:18:16] INFO  WEBrick::HTTPServer#start: pid=2224 port=9292
+</pre>
+
+<p>Open a browser window and type the url: <a href="http://localhost:9292/">http://localhost:9292/</a></p>
+
+<p>In your browser window, you should see something like this:</p>
+<pre>Hello. The time is 2011-12-06 11:19:49 +0530
+</pre>
+<p>Press <b>Ctrl-C</b> to stop the <b>WEBrick</b> server.</p>
+
+<p>Let's see how to use <code>Rack::Builder#map</code> to map urls to given actions. Let us create a <code>config.ru</code> file that contains the following:</p>
+<pre>require 'rack'
+require 'logger'
+rack_app = Rack::Builder.new do
+  use Rack::CommonLogger
+  Logger.new('rack.log')
+
+  map "/" do
+    run Proc.new {|env| [200, {"Content-Type" => "text/html"}, ["This is public page"]] }
+  end
+
+  map "/secret" do
+    use Rack::Auth::Basic do |user, password|
+      user == 'super' && password == 'secretsauce'
+    end
+
+    map "/" do
+      run Proc.new {|env| [200, {"Content-Type" => "text/html"}, ["This is a secret page"]] }
+    end
+
+    map "/files" do
+      run Proc.new {|env| [200, {"Content-Type" => "text/html"}, ["Here are the secret files"]] }
+    end
+  end
+end
+Rack::Handler::WEBrick.run rack_app, :Port => 9292
+</pre>
+<p>When you nest map blocks, you'll need to specify URI relative to the enclosing mapping block, as you can clearly see in the example above. We use HTTP Basic Authentication for securing things.</p>
+<p>To run our rack app, in the same folder that contains <code>config.ru</code>, type:</p>
+<pre>rackup config.ru
+[2011-10-25 06:18:16] INFO  WEBrick 1.3.1
+[2011-10-25 06:18:16] INFO  ruby 1.9.3 (2011-07-09) [i386-mingw32]
+[2011-10-25 06:18:16] INFO  WEBrick::HTTPServer#start: pid=2224 port=9292
+</pre>
+
+<p>Open a browser window and type the url: <a href="http://localhost:9292/">http://localhost:9292/</a></p>
+
+<p>In your browser window, you should see something like this:</p>
+<pre>This is public page
+</pre>
+<p>If you type the url: <a href="http://localhost:9292/secret">http://localhost:9292/secret</a></p>
+
+<p>In your browser window, you should see something like this:</p>
+
+<div style="font-size:80%; text-align:center;"><img src="http://rubylearning.com/images/auth.jpg" alt="HTTP Basic Authentication" style="padding-bottom:0.5em;" /><br />HTTP Basic Authentication</div>
+
+<p>For User Name type super and for Password type secretsauce. Press the OK button. In your browser window, you should see something like this:</p>
+<pre>This is a secret page
+</pre>
+
+<p>Now, if you type the url: <a href="http://localhost:9292/secret/files">http://localhost:9292/secret/files</a>, in your browser window, you should see something like this:</p>
+
+<pre>Here are the secret files
+</pre>
 
       <p>
 	    <strong>
