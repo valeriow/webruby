@@ -91,6 +91,19 @@ my_rack_proc.call
 &gt;&gt;
 </pre>
 
+<p>The above can be written in a Ruby program <code>my_rack_proc.rb</code>:</p>
+<pre># my_rack_proc.rb
+my_rack_proc = lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
+puts my_rack_proc.call({})
+</pre>
+
+<p>We can execute the <code>my_rack_proc.rb</code> program:</p>
+<pre>$ ruby my_rack_proc.rb
+200
+{"Content-Type"=>"text/plain"}
+Hello. The time is 2011-12-07 09:42:31 +0530
+</pre>
+
 <h3>Installing Rack gem</h3>
 <p>Rack gem is a collection of utilities and facilitating classes, to make life easier for anyone developing Rack applications. It includes basic implementations of request, response, cookies, sessions and a good number of usefult middlewares.</p>
 
