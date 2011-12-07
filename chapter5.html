@@ -56,6 +56,7 @@ Rack Intro
 &gt;&gt;
 </pre>
 
+<h4>my_rack1.rb</h4>
 <p>The above can be written in a Ruby program <b><code>my_rack1.rb</code></b>:</p>
 <pre># my_rack1.rb
 my_rack_proc = lambda {puts 'Rack Intro'}
@@ -91,6 +92,7 @@ my_rack_proc.call
 &gt;&gt;
 </pre>
 
+<h4>my_rack_proc.rb</h4>
 <p>The above can be written in a Ruby program <b><code>my_rack_proc.rb</code></b>:</p>
 <pre># my_rack_proc.rb
 my_rack_proc = lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
@@ -161,6 +163,7 @@ Hello. The time is 2011-12-07 09:42:31 +0530
 <pre>Hello. The time is 2011-10-24 10:02:20 +0530
 </pre>
 
+<h4>my_rack_proc2.rb</h4>
 <p>The above can be written in a Ruby program <b><code>my_rack_proc2.rb</code></b>:</p>
 <pre># my_rack_proc2.rb
 require 'rack'
@@ -180,7 +183,7 @@ Rack::Handler::WEBrick.run my_rack_proc
 <p>In your browser window, you should see a string, something like this:</p>
 <pre>Hello. The time is 2011-12-07 09:55:52 +0530
 </pre>
-
+<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
 
 
@@ -207,6 +210,7 @@ Rack::Handler::WEBrick.run my_rack_proc
 <p><code>Method</code> objects are created by <code>Object#method</code>. They are associated with a particular object (not just with a class). They may be used to invoke the method within the object. The <code>Method.call</code> method invokes the method with the specified arguments, returning the method's return value.</p>
 <p>Press <b>Ctrl-C</b> in irb to stop the <b>WEBrick</b> server.</p>
 
+<h4>my_rack2.rb</h4>
 <p>The above can be written in a Ruby program <b><code>my_rack2.rb</code></b>:</p>
 <pre># my_rack2.rb
 require 'rack'
@@ -226,7 +230,7 @@ Rack::Handler::WEBrick.run method(:my_method)
 <p>In your browser window, you should see something like this:</p>
 <pre>method called
 </pre>
-<p>Press <b>Ctrl-C</b> in irb to stop the <b>WEBrick</b> server.</p>
+<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
 
 <h3>Using rackup</h3>
@@ -259,7 +263,7 @@ Rack::Handler::WEBrick.run method(:my_method)
 <p>In your browser window, you should see something like this:</p>
 <pre>Hello. The time is 2011-10-24 15:18:10 +0530
 </pre>
-<p>Press <b>Ctrl-C</b> to stop the <b>WEBrick</b> server.</p>
+<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
 <p>Now let's move our application from the <code>config.ru</code> file to <b><code>my_app.rb</code></b> file as follows:</p>
 <pre># my_app.rb
@@ -286,7 +290,7 @@ run MyApp.new
 <p>In your browser window, you should see something like this:</p>
 <pre>Hello Rack Participants
 </pre>
-<p>Press <b>Ctrl-C</b> to stop the <b>WEBrick</b> server.</p>
+<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
 <h4>Using Lobster</h4>
 <p>Rack comes with little funny web application called "Lobster", that can be used as a demo.</p>
@@ -323,7 +327,7 @@ Rack::Handler::WEBrick.run rack_time, :Port => 9292
 <p>In your browser window, you should see something like this:</p>
 <pre>Hello. The time is 2011-12-06 11:19:49 +0530
 </pre>
-<p>Press <b>Ctrl-C</b> to stop the <b>WEBrick</b> server.</p>
+<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
 <p>Let us convert <code>rack_time</code> to use <code>Rack::Builder</code>. We will use the block form of <code>Rack::Builder</code>:</p>
 <pre>require 'rack'
@@ -348,7 +352,7 @@ Rack::Handler::WEBrick.run rack_time, :Port => 9292
 <p>In your browser window, you should see something like this:</p>
 <pre>Hello. The time is 2011-12-06 11:19:49 +0530
 </pre>
-<p>Press <b>Ctrl-C</b> to stop the <b>WEBrick</b> server.</p>
+<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
 <p><code>Rack::Builder#use</code> adds a middleware to the rack application stack created by <code>Rack::Builder</code>. Rack has many useful middlewares and one of them is <code>Rack::CommonLogger</code>, which logs a single line to the supplied log file in the Apache common log format.</p>
 <p>Let's add <code>Rack::CommonLogger</code> to <code>rack_time</code>:</p>
@@ -377,7 +381,7 @@ Rack::Handler::WEBrick.run rack_time, :Port => 9292
 <p>In your browser window, you should see something like this:</p>
 <pre>Hello. The time is 2011-12-06 11:19:49 +0530
 </pre>
-<p>Press <b>Ctrl-C</b> to stop the <b>WEBrick</b> server.</p>
+<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
 <p>Let's see how to use <code>Rack::Builder#map</code> to map urls to given actions. Let us create a <code>config.ru</code> file that contains the following:</p>
 <pre>require 'rack'
