@@ -56,8 +56,19 @@ Rack Intro
 &gt;&gt;
 </pre>
 
+<p>The above can be written in a Ruby program <code>my_rack1.rb</code>:</p>
+<pre># my_rack1.rb
+my_rack_proc = lambda {puts 'Rack Intro'}
+my_rack_proc.call
+</pre>
+
+<p>We can execute the <code>my_rack1.rb</code> program:</p>
+<pre>$ ruby my_rack1.rb #=> Rack Intro
+</pre>
+
+
 <h3>A simple Rack app - my_rack_proc</h3>
-<p>As mentioned earlier, our simple Rack application is a Ruby object (not a class) that responds to <code>call</code> and takes exactly one argument, the <em>environment</em>. The <em>environment</em> must be a true instance of <code>Hash</code>. The app should return an Array of exactly three values: the <em>status</em> code (it must be greater than or equal to 100), the <em>headers</em> (must be a hash), and the <em>body</em> (the body commonly is an Array of Strings, the application instance itself, or a File-like object. The <em>body</em> must respond to method <code>each</code> and must only yield <code>String</code> values.) Let us create our new <code>proc</code> object. Type:</p>
+<p>As mentioned earlier, <span style="background-color: #FFFFCC;">our simple Rack application is a Ruby object (not a class) that responds to <code>call</code> and takes exactly one argument, the <em>environment</em>. The <em>environment</em> must be a true instance of <code>Hash</code>. The app should return an <code>Array</code> of exactly three values: the <em>status</em> code (it must be greater than or equal to 100), the <em>headers</em> (must be a hash), and the <em>body</em> (the body commonly is an Array of Strings, the application instance itself, or a File-like object. The <em>body</em> must respond to method <code>each</code> and must only yield <code>String</code> values.)</span> Let us create our new <code>proc</code> object. Type:</p>
 <pre>&gt;&gt; my_rack_proc = lambda { |env| [200, {}, ["Hello. The time is #{Time.now}"]] }
 => #&lt;Proc:0x1f4c358@(irb):5(lambda)&gt;
 &gt;&gt;
