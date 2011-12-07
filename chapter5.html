@@ -69,7 +69,7 @@ my_rack_proc.call
 
 
 <h3>A simple Rack app - my_rack_proc</h3>
-<p>As mentioned earlier, <span style="background-color: #FFFFCC;">our simple Rack application is a Ruby object (not a class) that responds to <code>call</code> and takes exactly one argument, the <em>environment</em>. The <em>environment</em> must be a true instance of <code>Hash</code>. The app should return an <code>Array</code> of exactly three values: the <em>status</em> code (it must be greater than or equal to 100), the <em>headers</em> (must be a hash), and the <em>body</em> (the body commonly is an Array of Strings, the application instance itself, or a File-like object. The <em>body</em> must respond to method <code>each</code> and must only yield <code>String</code> values.)</span> Let us create our new <code>proc</code> object. Type:</p>
+<p>As mentioned earlier, <span style="background-color: #FFFFCC;">our simple Rack application is a Ruby object (not a class) that responds to <code>call</code> and takes exactly one argument, the <em>environment</em>. The <em>environment</em> must be a true instance of <code>Hash</code>. This hash contains all the relevant information about the request: this includes the HTTP verb used by the request, the path that is requested, the headers that have been sent by the client, and so on. The app should return an <code>Array</code> of exactly three values: the <em>status</em> code (it must be greater than or equal to 100), the <em>headers</em> (must be a hash), and the <em>body</em> (the body commonly is an Array of Strings, the application instance itself, or a File-like object. The <em>body</em> must respond to method <code>each</code> and must only yield <code>String</code> values.)</span> Let us create our new <code>proc</code> object. Type:</p>
 <pre>&gt;&gt; my_rack_proc = lambda { |env| [200, {}, ["Hello. The time is #{Time.now}"]] }
 => #&lt;Proc:0x1f4c358@(irb):5(lambda)&gt;
 &gt;&gt;
@@ -265,10 +265,12 @@ Rack::Handler::WEBrick.run method(:my_method)
 </pre>
 <p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
+<h4>my_app.rb</h4>
+
 <p>Now let's move our application from the <code>config.ru</code> file to <b><code>my_app.rb</code></b> file as follows:</p>
 <pre># my_app.rb
 class MyApp
-  def call env
+  def call(env)
     [200, {"Content-Type" => "text/html"}, ["Hello Rack Participants"]]
   end
 end
@@ -304,6 +306,7 @@ run Rack::Lobster.new
 <pre>$ rackup config.ru
 </pre>
 <p>Open a browser window and type the url: <a href="http://localhost:9292/">http://localhost:9292/</a>. You will see a lobster drawing!</p>
+<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
 <h3>Rack::Builder</h3>
 <p>Under the hood, <code>rackup</code> converts your <code>config.ru</code> script to an instance of <a href="http://rack.rubyforge.org/doc/classes/Rack/Builder.html">Rack::Builder</a>.</p>
@@ -395,7 +398,7 @@ rack_app = Rack::Builder.new do
   end
 
   map "/secret" do
-    use Rack::Auth::Basic do |user, password|
+    use Rack::Auth::Basic, "Restricted Area" do |user, password|
       user == 'super' && password == 'secretsauce'
     end
 
