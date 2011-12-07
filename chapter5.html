@@ -26,7 +26,7 @@
 
 <p>HTTP is a simple protocol: it basically describes the activity of a client sending a HTTP request to a server and the server returning a HTTP response. Both HTTP request and HTTP response in turn have very similar structures. A HTTP request is a triplet consisting of a method and resource pair, a set of headers and an optional body while a HTTP response is in triplet consisting of a response code, a set of headers and an optional body.</p>
 
-<p>Rack maps closely to this. A Rack application is a Ruby object that has a <code>call</code> method, which has a single argument, the <em>environment</em>, (corresponding to a HTTP request) and returns an array of 3 elements, <em>status</em>, <em>headers</em> and <em>body</em> (corresponding to a HTTP response).</p>
+<p>Rack maps closely to this. <span style="background-color: #FFFFCC;">A Rack application is a Ruby object that has a <code>call</code> method, which has a single argument, the <em>environment</em>, (corresponding to a HTTP request) and returns an array of 3 elements, <em>status</em>, <em>headers</em> and <em>body</em> (corresponding to a HTTP response)</span>.</p>
 <p>That's the Rack specification in a nutshell. You can check out the full details <a href="http://rack.rubyforge.org/doc/files/SPEC.html">here</a>. <b>Strictly speaking, you don't need the rack gem in order to write Rack ready applications</b>. Just stick to the specification and that's it.</p>
 
 <p>Rack includes <em>handlers</em> that connect Rack to all these web application servers (WEBrick, Mongrel etc.).</p>
