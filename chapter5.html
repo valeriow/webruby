@@ -56,7 +56,7 @@ Rack Intro
 &gt;&gt;
 </pre>
 
-<p>The above can be written in a Ruby program <code>my_rack1.rb</code>:</p>
+<p>The above can be written in a Ruby program <b><code>my_rack1.rb</code></b>:</p>
 <pre># my_rack1.rb
 my_rack_proc = lambda {puts 'Rack Intro'}
 my_rack_proc.call
@@ -91,7 +91,7 @@ my_rack_proc.call
 &gt;&gt;
 </pre>
 
-<p>The above can be written in a Ruby program <code>my_rack_proc.rb</code>:</p>
+<p>The above can be written in a Ruby program <b><code>my_rack_proc.rb</code></b>:</p>
 <pre># my_rack_proc.rb
 my_rack_proc = lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
 puts my_rack_proc.call({})
@@ -161,7 +161,7 @@ Hello. The time is 2011-12-07 09:42:31 +0530
 <pre>Hello. The time is 2011-10-24 10:02:20 +0530
 </pre>
 
-<p>The above can be written in a Ruby program <code>my_rack_proc2.rb</code>:</p>
+<p>The above can be written in a Ruby program <b><code>my_rack_proc2.rb</code></b>:</p>
 <pre># my_rack_proc2.rb
 require 'rack'
 my_rack_proc = lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
@@ -239,7 +239,7 @@ Rack::Handler::WEBrick.run my_rack_proc
 </pre>
 <p>Press <b>Ctrl-C</b> to stop the <b>WEBrick</b> server.</p>
 
-<p>Now let's move our application from the <code>config.ru</code> file to <code>my_app.rb</code> file as follows:</p>
+<p>Now let's move our application from the <code>config.ru</code> file to <b><code>my_app.rb</code></b> file as follows:</p>
 <pre># my_app.rb
 class MyApp
   def call env
