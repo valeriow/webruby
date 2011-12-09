@@ -130,3 +130,21 @@ pre {
   	-webkit-box-shadow: 5px 5px 5px #aaa;
   	box-shadow: 5px 5px 5px #aaa;
 }
+
+/* footer */
+#footer {
+  clear: both;
+/*  background: #FFF url(footerbg.gif) repeat-x left top;*/
+  border-top: 0px solid #F2F2F2;
+  text-align: left; 
+  height: 50px; 
+  font-size: 70%; /* added by Talim on 1st March 2007 */
+/*  width: 100%;*/
+  width:960px;
+  margin:0 auto;
+  padding-top:50px;
+}
+#footer a {
+  text-decoration: none;
+  font-weight: bold;
+}

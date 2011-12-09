@@ -35,7 +35,7 @@ Acknowledgments
 ---------------
 
 * Al Snow ( https://github.com/jasnow ) for his various suggestions.
-* Matt Aimonetti ( https://github.com/mattetti ) for the GET/POST example for Rack.
+* Matt Aimonetti ( https://github.com/mattetti ) for the GET/POST example related to Rack.
 * Michael Kohl ( https://github.com/citizen428 ) for proof reading and making relevant corrections to chapters 1 and 2.
 * Oto Brglez ( https://github.com/otobrglez ) for the note on "*Using Nokogiri*"
 * Punjab ( https://github.com/punjab ) for beautifying the css and for the note on "*Using RVM*"
