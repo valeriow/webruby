@@ -29,11 +29,6 @@
 <p>Rack maps closely to this. <span style="background-color: #FFFFCC;">A Rack application is a Ruby object that has a <code>call</code> method, which has a single argument, the <em>environment</em>, (corresponding to a HTTP request) and returns an array of 3 elements, <em>status</em>, <em>headers</em> and <em>body</em> (corresponding to a HTTP response)</span>.</p>
 <p>That's the Rack specification in a nutshell. You can check out the full details <a href="http://rack.rubyforge.org/doc/files/SPEC.html">here</a>. <b>Strictly speaking, you don't need the rack gem in order to write Rack ready applications</b>. Just stick to the specification and that's it.</p>
 
-</div>
-
-<div style="width:image 560 px; font-size:80%; text-align:center;"><img src="http://rubylearning.com/images/rack.jpeg" alt="Rack App" width="560" style="padding-bottom:0.5em;" /><br />A Rack App</div>
-
-<div>
 <h3>Rack Documentation</h3>
 <p><a href="http://rack.rubyforge.org/doc/">http://rack.rubyforge.org/doc/</a></p>
 
@@ -109,6 +104,13 @@ Hello. The time is 2011-12-07 09:42:31 +0530
 <p>Rack includes <em>adapters</em> that connect Rack to various web frameworks (Sinatra, Rails etc.).</p>
 
 <p>Between the server and the framework, Rack can be customized to your applications needs using <em>middleware</em>. <span style="background-color: #FFFFCC;">The fundamental idea behind Rack middleware is - come between the calling client and the server, process the HTTP request before sending it to the server, and processing the HTTP response before returning it to the client</span>.</p>
+
+</div>
+
+<div style="width:image 560 px; font-size:80%; text-align:center;"><img src="http://rubylearning.com/images/rack.jpeg" alt="Rack App" width="560" style="padding-bottom:0.5em;" /><br />A Rack App</div>
+
+<div>
+
 
 <p>Let's check if we already have rack with us. Open a command window and type:</p>
 <pre>irb --simple-prompt
