@@ -21,14 +21,16 @@
 <p>Note that I have Ruby 1.9.3 installed on a Windows box and all the programs in this article have been tested using that.</p>
 <p>Remember the <a href="http://rubylearning.com/satishtalim/ruby_procs.html">proc object from Ruby</a>? <em>Blocks are not objects</em>, but they can be converted into objects of class <code>Proc</code>. This can be done by calling the <code>lambda</code> method of the class <code>Object</code>. A block created with <code>lambda</code> acts like a Ruby method. The class <code>Proc</code> has a method <code>call</code> that invokes the block.</p>
 
-<p>In irb type:</p>
-<pre>&gt;&gt; my_proc = lambda {puts 'Proc Called'}
+<p>Open a command window and type:</p>
+<pre>$ irb --simple-prompt
+&gt;&gt; my_proc = lambda {puts 'Proc Called'}
 => #&lt;Proc:0x1fc9038@(irb):2(lambda)&gt;
 &gt;&gt; # method call invokes the block
 ?&gt; my_proc.call
 Proc Called
 => nil
-&gt;&gt;
+&gt;&gt; exit
+$
 </pre>
 
 <h4>my_proc1.rb</h4>
