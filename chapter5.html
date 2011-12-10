@@ -129,15 +129,17 @@ Hello. The time is 2011-12-07 09:42:31 +0530
 </pre>
 
 
-<p>We can run our previously written Rack application (<b>my_rack_proc</b>) with any of the Rack handlers.</p>
+<p>We can run our previously written Rack application (<code>my_rack_proc</code>) with any of the Rack handlers.</p>
 <p>To look at the Rack handlers available, in the already open irb window type:</p>
 
-<pre>&gt;&gt; Rack::Handler.constants
+<pre>&gt;&gt; require 'rack'
+=> true
+&gt;&gt; Rack::Handler.constants
 => [:CGI, :FastCGI, :Mongrel, :EventedMongrel, :SwiftipliedMongrel, :WEBrick, :LSWS, :SCGI, :Thin]
 &gt;&gt;
 </pre>
 
-<p>To get a handler for say <b>WEBrick</b> (the default <b>WEBrick</b>, web application server, that comes along with Ruby), type:</p>
+<p>To get a handler for say <code>WEBrick</code> (the default <code>WEBrick</code>, web application server, that comes along with Ruby), type:</p>
 <pre>&gt;&gt; Rack::Handler::WEBrick
 => Rack::Handler::WEBrick
 &gt;&gt;
