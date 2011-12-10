@@ -17,21 +17,6 @@
 
 <h1 class="title">Day 5 and 6 - Spend more time here!</h1>
 <h2>Learning Rack</h2>
-<h3>Rack Specification</h3>
-<p>In the words of the author of Rack - <b>Christian Neukirchen</b>: Rack aims to provide a minimal API for connecting web servers supporting Ruby (like WEBrick, Mongrel etc.) and Ruby web frameworks (like Rails, Sinatra etc.).</p>
-
-<p>Web frameworks such as Sinatra are built on top of Rack or have a Rack interface for allowing web application servers to connect to them.</p>
-
-<p>The premise of Rack is simple - it just allows you to easily deal with HTTP requests.</p>
-
-<p>HTTP is a simple protocol: it basically describes the activity of a client sending a HTTP request to a server and the server returning a HTTP response. Both HTTP request and HTTP response in turn have very similar structures. A HTTP request is a triplet consisting of a method and resource pair, a set of headers and an optional body while a HTTP response is in triplet consisting of a response code, a set of headers and an optional body.</p>
-
-<p>Rack maps closely to this. <span style="background-color: #FFFFCC;">A Rack application is a Ruby object that has a <code>call</code> method, which has a single argument, the <em>environment</em>, (corresponding to a HTTP request) and returns an array of 3 elements, <em>status</em>, <em>headers</em> and <em>body</em> (corresponding to a HTTP response)</span>.</p>
-<p>That's the Rack specification in a nutshell. You can check out the full details <a href="http://rack.rubyforge.org/doc/files/SPEC.html">here</a>. <b>Strictly speaking, you don't need the rack gem in order to write Rack ready applications</b>. Just stick to the specification and that's it.</p>
-
-<h3>Rack Documentation</h3>
-<p><a href="http://rack.rubyforge.org/doc/">http://rack.rubyforge.org/doc/</a></p>
-
 <h3>Revisiting Ruby's proc object</h3>
 <p>Note that I have Ruby 1.9.3 installed on a Windows box and all the programs in this article have been tested using that.</p>
 <p>Remember the <a href="http://rubylearning.com/satishtalim/ruby_procs.html">proc object from Ruby</a>? <em>Blocks are not objects</em>, but they can be converted into objects of class <code>Proc</code>. This can be done by calling the <code>lambda</code> method of the class <code>Object</code>. A block created with <code>lambda</code> acts like a Ruby method. The class <code>Proc</code> has a method <code>call</code> that invokes the block.</p>
@@ -53,9 +38,25 @@ my_proc = lambda {puts 'Proc Called'}
 my_proc.call
 </pre>
 
-<p>We can execute the <code>my_rack1.rb</code> program:</p>
+<p>We can execute the <code>my_proc1.rb</code> program:</p>
 <pre>$ ruby my_proc1.rb #=> Proc Called
 </pre>
+
+<h3>Rack Specification</h3>
+<p>In the words of the author of Rack - <b>Christian Neukirchen</b>: Rack aims to provide a minimal API for connecting web servers supporting Ruby (like WEBrick, Mongrel etc.) and Ruby web frameworks (like Rails, Sinatra etc.).</p>
+
+<p>Web frameworks such as Sinatra are built on top of Rack or have a Rack interface for allowing web application servers to connect to them.</p>
+
+<p>The premise of Rack is simple - it just allows you to easily deal with HTTP requests.</p>
+
+<p>HTTP is a simple protocol: it basically describes the activity of a client sending a HTTP request to a server and the server returning a HTTP response. Both HTTP request and HTTP response in turn have very similar structures. A HTTP request is a triplet consisting of a method and resource pair, a set of headers and an optional body while a HTTP response is in triplet consisting of a response code, a set of headers and an optional body.</p>
+
+<p>Rack maps closely to this. <span style="background-color: #FFFFCC;">A Rack application is a Ruby object that has a <code>call</code> method, which has a single argument, the <em>environment</em>, (corresponding to a HTTP request) and returns an array of 3 elements, <em>status</em>, <em>headers</em> and <em>body</em> (corresponding to a HTTP response)</span>.</p>
+<p>That's the Rack specification in a nutshell. You can check out the full details <a href="http://rack.rubyforge.org/doc/files/SPEC.html">here</a>. <b>Strictly speaking, you don't need the rack gem in order to write Rack ready applications</b>. Just stick to the specification and that's it.</p>
+
+<h3>Rack Documentation</h3>
+<p><a href="http://rack.rubyforge.org/doc/">http://rack.rubyforge.org/doc/</a></p>
+
 
 <h3>A simple Rack app - my_rack_proc</h3>
 <p>As mentioned earlier, <span style="background-color: #FFFFCC;">our simple Rack application is a Ruby object (not a class) that responds to <code>call</code> and takes exactly one argument, the <em>environment</em>. The <em>environment</em> must be a true instance of <code>Hash</code>. This hash contains all the relevant information about the request: this includes the HTTP verb used by the request, the path that is requested, the headers that have been sent by the client, and so on. The app should return an <code>Array</code> of exactly three values: the <em>status</em> code (it must be greater than or equal to 100), the <em>headers</em> (must be a hash), and the <em>body</em> (the body commonly is an Array of Strings, the application instance itself, or a File-like object. The <em>body</em> must respond to method <code>each</code> and must only yield <code>String</code> values.)</span></p>
