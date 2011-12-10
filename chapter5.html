@@ -89,18 +89,20 @@ $
 
 
 <h4>my_rack_proc.rb</h4>
-<p>The above can be written in a Ruby program <b><code>my_rack_proc.rb</code></b>:</p>
+<p>What we saw above can be written in a Ruby program <b><code>my_rack_proc.rb</code></b>:</p>
 <pre># my_rack_proc.rb
 my_rack_proc = lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
 puts my_rack_proc.call({})
 </pre>
 
-<p>We can execute the <code>my_rack_proc.rb</code> program:</p>
+<p>Open a command window and execute the <code>my_rack_proc.rb</code> program:</p>
 <pre>$ ruby my_rack_proc.rb
 200
 {"Content-Type"=>"text/plain"}
 Hello. The time is 2011-12-07 09:42:31 +0530
 </pre>
+<p>Close the command window.</p>
+
 
 <h3>Rack Documentation</h3>
 <p><a href="http://rack.rubyforge.org/doc/">http://rack.rubyforge.org/doc/</a></p>
