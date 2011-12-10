@@ -67,23 +67,8 @@ my_rack_proc.call
 <pre>$ ruby my_rack1.rb #=> Rack Intro
 </pre>
 
-<h3>A simple Rack middleware</h3>
-<p>As mentioned earlier, <span style="background-color: #FFFFCC;">our simple Rack application is a Ruby object (not a class) that responds to <code>call</code> and takes exactly one argument, the <em>environment</em>. The <em>environment</em> must be a true instance of <code>Hash</code>. This hash contains all the relevant information about the request: this includes the HTTP verb used by the request, the path that is requested, the headers that have been sent by the client, and so on. The app should return an <code>Array</code> of exactly three values: the <em>status</em> code (it must be greater than or equal to 100), the <em>headers</em> (must be a hash), and the <em>body</em> (the body commonly is an Array of Strings, the application instance itself, or a File-like object. The <em>body</em> must respond to method <code>each</code> and must only yield <code>String</code> values.)</span></p>
-<p>For our simple middleware, you just need to write a class that has a <code>call</code> method. We just want our middleware to be transparent and let our webserver deal with it normally. Write the following program <code>my_middleware.rb</code>:</p>
-<pre>class MyMiddleware
-  def initialize(app)
-    @app = app
-  end
-
-  def call(env)
-    @app.call(env)
-  end
-end
-</pre>
-<p>We keep the application reference in the <code>@app</code> variable when a new instance of the middleware is created. Then when the middleware is called, we just call the rest of the chain and pretend nothing happened.</p>
-<p>We shall run our program <code>my_middleware.rb</code>, once we learn about <code>rackup</code> later on.</p>
-
 <h3>A simple Rack app - my_rack_proc</h3>
+<p>As mentioned earlier, <span style="background-color: #FFFFCC;">our simple Rack application is a Ruby object (not a class) that responds to <code>call</code> and takes exactly one argument, the <em>environment</em>. The <em>environment</em> must be a true instance of <code>Hash</code>. This hash contains all the relevant information about the request: this includes the HTTP verb used by the request, the path that is requested, the headers that have been sent by the client, and so on. The app should return an <code>Array</code> of exactly three values: the <em>status</em> code (it must be greater than or equal to 100), the <em>headers</em> (must be a hash), and the <em>body</em> (the body commonly is an Array of Strings, the application instance itself, or a File-like object. The <em>body</em> must respond to method <code>each</code> and must only yield <code>String</code> values.)</span></p>
 <p>Let us create our new <code>proc</code> object. Type:</p>
 <pre>&gt;&gt; my_rack_proc = lambda { |env| [200, {}, ["Hello. The time is #{Time.now}"]] }
 => #&lt;Proc:0x1f4c358@(irb):5(lambda)&gt;
@@ -265,7 +250,7 @@ Rack::Handler::WEBrick.run method(:my_method)
 <p>Let us create a <code>config.ru</code> file that contains the following:</p>
 <pre>run lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
 </pre>
-<p>This file contains <code>run</code>, which can be called on anything that responds to a <code>.call</code>.</p>
+<p>This file contains <code>run</code>, which can be called on anything that responds to a <code>.call</code>. Also note that you don't need to <code>require 'rack'</code> since you use <code>rackup</code> which already loads rack.</p>
 
 <p>To run our rack app, in the same folder that contains <code>config.ru</code>, type:</p>
 <pre>$ rackup config.ru
@@ -309,11 +294,45 @@ run MyApp.new
 </pre>
 <p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
+<h4>Another Rack middleware</h4>
+<p><b>Credit:</b> <a href="https://github.com/mattetti">Matt Aimonetti</a></p>
+
+<p>Write the following program <code>my_middleware.rb</code>:</p>
+<pre># my_middleware.rb
+module MyMiddleware
+  class Hello
+    def initialize(app)
+      @app = app
+    end
+
+    def call(env)
+      if env['PATH_INFO'] == '/hello'
+        [200,  {"Content-Type" => "text/plain"}, ["Hello from the middleware!"]]
+      else
+        # forward the request
+        @app.call(env)
+      end
+    end
+  end
+end
+</pre>
+<p>We keep the application reference in the <code>@app</code> variable when a new instance of the middleware is created.</p>
+
+<p>Create <code>config.ru</code> as follows:</p>
+<pre>require './my_middleware'
+use MyMiddleware::Hello
+run Proc.new{|env|  [200, {"Content-Type" => "text/plain"}, ['Try accessing visiting /hello']] }
+</pre>
+
+<p>To run our rack app, in the same folder that contains <code>config.ru</code>, type:</p>
+<pre>rackup config.ru
+</pre>
+
+
 <h4>Using Lobster</h4>
 <p>Rack comes with little funny web application called "Lobster", that can be used as a demo.</p>
 <p>Let us create a <code>config.ru</code> file that contains the following:</p>
 <pre># config.ru
-require 'rack'
 require 'rack/lobster'
 run Rack::Lobster.new
 </pre>
@@ -323,13 +342,23 @@ run Rack::Lobster.new
 <p>Open a browser window and type the url: <a href="http://localhost:9292/">http://localhost:9292/</a>. You will see a lobster drawing!</p>
 <p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
+<p>Previously we wrote a program <code>my_middleware.rb</code>. We can use this with lobster:</p>
+<p>Let us create a <code>config.ru</code> file that contains the following:</p>
+<pre># config.ru
+require 'rack/lobster'
+use MyMiddleware::Hello
+run Rack::Lobster.new
+</pre>
+<p>To run our rack app, in the same folder that contains <code>config.ru</code>, type:</p>
+<pre>$ rackup config.ru
+</pre>
+
 <h3>Rack::Builder</h3>
 <p>Under the hood, <code>rackup</code> converts your <code>config.ru</code> script to an instance of <a href="http://rack.rubyforge.org/doc/classes/Rack/Builder.html">Rack::Builder</a>.</p>
 <p><code>Rack::Builder</code> is the thing that glues various Rack middlewares and applications together and converts them into a single entity/rack application. A good analogy is comparing <code>Rack::Builder</code> object with a stack, where at the very bottom is your actual rack application and all middlewares on top of it, and the whole stack itself is a rack application too.</p>
 
 <p>Let us create a <code>config.ru</code> file that contains the following:</p>
-<pre>require 'rack'
-rack_time = Proc.new { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
+<pre>rack_time = Proc.new { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
 Rack::Handler::WEBrick.run rack_time, :Port => 9292
 </pre>
 
@@ -347,9 +376,8 @@ Rack::Handler::WEBrick.run rack_time, :Port => 9292
 </pre>
 <p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
-<p>Let us convert <code>rack_time</code> to use <code>Rack::Builder</code>. We will use the block form of <code>Rack::Builder</code>:</p>
-<pre>require 'rack'
-rack_time = Proc.new { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
+<p>In <code>config.ru</code>, let us convert <code>rack_time</code> to use <code>Rack::Builder</code>. We will use the block form of <code>Rack::Builder</code>:</p>
+<pre>rack_time = Proc.new { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
 builder = Rack::Builder.new do
   run rack_time
 end
@@ -374,8 +402,7 @@ Rack::Handler::WEBrick.run rack_time, :Port => 9292
 
 <p><code>Rack::Builder#use</code> adds a middleware to the rack application stack created by <code>Rack::Builder</code>. Rack has many useful middlewares and one of them is <code>Rack::CommonLogger</code>, which logs a single line to the supplied log file in the Apache common log format.</p>
 <p>Let's add <code>Rack::CommonLogger</code> to <code>rack_time</code>:</p>
-<pre>require 'rack'
-require 'logger'
+<pre>require 'logger'
 rack_time = Proc.new { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
 builder = Rack::Builder.new do
   use Rack::CommonLogger
@@ -402,8 +429,7 @@ Rack::Handler::WEBrick.run rack_time, :Port => 9292
 <p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
 
 <p>Let's see how to use <code>Rack::Builder#map</code> to map urls to given actions. Let us create a <code>config.ru</code> file that contains the following:</p>
-<pre>require 'rack'
-require 'logger'
+<pre>require 'logger'
 rack_app = Rack::Builder.new do
   use Rack::CommonLogger
   Logger.new('rack.log')
