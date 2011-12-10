@@ -180,14 +180,14 @@ Hello. The time is 2011-12-07 09:42:31 +0530
 
 
 <h4>my_rack_proc2.rb</h4>
-<p>The above can be written in a Ruby program <b><code>my_rack_proc2.rb</code></b>:</p>
+<p>What we saw above can be written in a Ruby program <b><code>my_rack_proc2.rb</code></b>:</p>
 <pre># my_rack_proc2.rb
 require 'rack'
 my_rack_proc = lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
 Rack::Handler::WEBrick.run my_rack_proc
 </pre>
 
-<p>We can execute the <code>my_rack_proc2.rb</code> program:</p>
+<p>Open a command window and execute the <code>my_rack_proc2.rb</code> program:</p>
 <pre>$ ruby my_rack_proc2.rb
 [2011-12-07 09:54:48] INFO  WEBrick 1.3.1
 [2011-12-07 09:54:48] INFO  ruby 1.9.3 (2011-10-30) [i386-mingw32]
@@ -199,7 +199,7 @@ Rack::Handler::WEBrick.run my_rack_proc
 <p>In your browser window, you should see a string, something like this:</p>
 <pre>Hello. The time is 2011-12-07 09:55:52 +0530
 </pre>
-<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
+<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server. Close the command window.</p>
 
 
 
