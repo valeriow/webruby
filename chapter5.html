@@ -67,23 +67,26 @@ my_proc.call
 => #&lt;Proc:0x1f4c358@(irb):5(lambda)&gt;
 &gt;&gt;
 </pre>
-<p>Now we can call the proc object <code>my_rack_proc</code> with the <code>call</code> method. In irb type:</p>
+<p>Now we can call the proc object <code>my_rack_proc</code> with the <code>call</code> method. In the above window type:</p>
 <pre>&gt;&gt; my_rack_proc.call({})
 => [200, {}, ["Hello. The time is 2011-10-24 09:18:56 +0530"]]
 &gt;&gt;
 </pre>
-<p><b>my_rack_proc</b> is our single line Rack application.</p>
+<p><code>my_rack_proc</code> is our single line Rack application.</p>
 
 <p>In the above example, we have used an empty hash for headers. Instead, let's have something in the header as follows:</p>
 <pre>&gt;&gt; my_rack_proc = lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
 => #&lt;Proc:0x1f4c358@(irb):5(lambda)&gt;
 &gt;&gt;
 </pre>
-<p>Now we can call the proc object <code>my_rack_proc</code> with the <code>call</code> method. In irb type:</p>
+<p>Now we can call the proc object <code>my_rack_proc</code> with the <code>call</code> method. In the above window type:</p>
 <pre>&gt;&gt; my_rack_proc.call({})
 => [200, {"Content-Type" => "text/plain"}, ["Hello. The time is 2011-10-24 09:18:56 +0530"]]
-&gt;&gt;
+&gt;&gt; exit
+$
 </pre>
+<p>Close the command window.</p>
+
 
 <h4>my_rack_proc.rb</h4>
 <p>The above can be written in a Ruby program <b><code>my_rack_proc.rb</code></b>:</p>
