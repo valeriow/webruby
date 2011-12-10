@@ -32,29 +32,29 @@
 <h3>Rack Documentation</h3>
 <p><a href="http://rack.rubyforge.org/doc/">http://rack.rubyforge.org/doc/</a></p>
 
-<h3>A quick visit to Ruby's proc object</h3>
+<h3>Revisiting Ruby's proc object</h3>
 <p>Note that I have Ruby 1.9.3 installed on a Windows box and all the programs in this article have been tested using that.</p>
 <p>Remember the <a href="http://rubylearning.com/satishtalim/ruby_procs.html">proc object from Ruby</a>? <em>Blocks are not objects</em>, but they can be converted into objects of class <code>Proc</code>. This can be done by calling the <code>lambda</code> method of the class <code>Object</code>. A block created with <code>lambda</code> acts like a Ruby method. The class <code>Proc</code> has a method <code>call</code> that invokes the block.</p>
 
 <p>In irb type:</p>
-<pre>&gt;&gt; my_rack_proc = lambda {puts 'Rack Intro'}
+<pre>&gt;&gt; my_proc = lambda {puts 'Proc Called'}
 => #&lt;Proc:0x1fc9038@(irb):2(lambda)&gt;
 &gt;&gt; # method call invokes the block
-?&gt; my_rack_proc.call
-Rack Intro
+?&gt; my_proc.call
+Proc Called
 => nil
 &gt;&gt;
 </pre>
 
 <h4>my_rack1.rb</h4>
-<p>The above can be written in a Ruby program <b><code>my_rack1.rb</code></b>:</p>
-<pre># my_rack1.rb
-my_rack_proc = lambda {puts 'Rack Intro'}
-my_rack_proc.call
+<p>The above can be written in a Ruby program <b><code>my_proc1.rb</code></b>:</p>
+<pre># my_proc1.rb
+my_proc = lambda {puts 'Proc Called'}
+my_proc.call
 </pre>
 
 <p>We can execute the <code>my_rack1.rb</code> program:</p>
-<pre>$ ruby my_rack1.rb #=> Rack Intro
+<pre>$ ruby my_proc1.rb #=> Proc Called
 </pre>
 
 <h3>A simple Rack app - my_rack_proc</h3>
