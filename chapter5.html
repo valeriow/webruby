@@ -376,11 +376,11 @@ run Proc.new{|env|  [200, {"Content-Type" => "text/plain"}, ['Try accessing visi
 require 'rack/lobster'
 run Rack::Lobster.new
 </pre>
-<p>To run our rack app, in the same folder that contains <code>config.ru</code>, type:</p>
+<p>To run our rack app, in the same folder that contains <code>config.ru</code>, open a command window and type:</p>
 <pre>$ rackup config.ru
 </pre>
 <p>Open a browser window and type the url: <a href="http://localhost:9292/">http://localhost:9292/</a>. You will see a lobster drawing!</p>
-<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server.</p>
+<p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server. Close the command window.</p>
 
 <p>Previously we wrote a program <code>my_middleware.rb</code>. We can use this with lobster:</p>
 <p>Let us create a <code>config.ru</code> file that contains the following:</p>
@@ -389,9 +389,10 @@ require 'rack/lobster'
 use MyMiddleware::Hello
 run Rack::Lobster.new
 </pre>
-<p>To run our rack app, in the same folder that contains <code>config.ru</code>, type:</p>
+<p>To run our rack app, in the same folder that contains <code>config.ru</code>, open a command window and type:</p>
 <pre>$ rackup config.ru
 </pre>
+<p>After you have finished executing this program, press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server. Close the command window.</p>
 
 <h3>Rack::Builder</h3>
 <p>Under the hood, <code>rackup</code> converts your <code>config.ru</code> script to an instance of <a href="http://rack.rubyforge.org/doc/classes/Rack/Builder.html">Rack::Builder</a>.</p>
