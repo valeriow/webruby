@@ -3,6 +3,9 @@
 <head>
 <title>Intermediate Ruby</title>
 <meta charset="utf-8">
+<meta name="author" content="Satish Talim" >
+<meta name="keywords" content="programming, Ruby, Rack, Sinatra" >
+<meta name="description" content="A Ruby programming tutorial on topics that hopefully will help those that have some knowledge of Ruby programming to get started with web programming." >
 <link rel="stylesheet" href="stylesheets/intruby.css">
 </head>
 <body>
@@ -382,6 +385,8 @@ run Rack::Lobster.new
 <p>Open a browser window and type the url: <a href="http://localhost:9292/">http://localhost:9292/</a>. You will see a lobster drawing!</p>
 <p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server. Close the command window.</p>
 
+<p>The following is credited to <a href="https://github.com/mattetti">Matt Aimonetti</a></p>
+
 <p>Previously we wrote a program <code>my_middleware.rb</code>. We can use this with lobster:</p>
 <p>Let us create a <code>config.ru</code> file that contains the following:</p>
 <pre># config.ru
@@ -393,6 +398,12 @@ run Rack::Lobster.new
 <pre>$ rackup config.ru
 </pre>
 <p>After you have finished executing this program, press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server. Close the command window.</p>
+
+*******************
+https://github.com/rack/rack/wiki/Rack-app-with-uri-and-HTTP-specific-responses
+https://gist.github.com/1447058
+https://github.com/rack/rack/blob/master/lib/rack/request.rb
+*******************
 
 <h3>Rack::Builder</h3>
 <p>Under the hood, <code>rackup</code> converts your <code>config.ru</code> script to an instance of <a href="http://rack.rubyforge.org/doc/classes/Rack/Builder.html">Rack::Builder</a>.</p>
