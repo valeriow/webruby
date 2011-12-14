@@ -272,23 +272,12 @@ coll.update( { :_id => coll_id }, '$set' => { :weight => 60 } )
 <p>MongoHQ is the hosted database solution for getting your applications up and running on MongoDB.</p>
 
 <h4>Sign Up</h4>
-<p>Sign up for a free account at <a href="https://mongohq.com/signup">https://mongohq.com/signup</a>. When you fill up the online form, remember what you enter for defauly username and password - we will need this information later on.</p>
+<p>Sign up for a free account at <a href="https://mongohq.com/signup">https://mongohq.com/signup</a>. When you fill up the online form, remember what you enter for default username and password - we will need this information later on.</p>
 
 <h4>Create a database</h4>
-<p>Create a free database. I have created a database named <code>rubylearning</code> in my account, as can be seen below:</p>
-</div>
+<p>Next, create a free database. I have created a database named <code>rubylearning</code> in my account. My database <code>rubylearning</code> is at server <code>staff.mongohq.com</code> and port <code>10066</code>.</p>
 
-<div style="width:image 560 px; font-size:80%; text-align:center;"><img src="http://rubylearning.com/images/mongohq.jpg" alt="database" width="560" style="padding-bottom:0.5em;" /><br />Create Database</div>
-
-<div>
 <h4>Accessing the database</h4>
-</div>
-
-<div style="width:image 560 px; font-size:80%; text-align:center;"><img src="http://rubylearning.com/images/database.jpg" alt="database" width="560" style="padding-bottom:0.5em;" /><br />The Database</div>
-
-<div>
-<p>As can be seen in the image above, my database <code>rubylearning</code> is at server <code>staff.mongohq.com</code> and port <code>10066</code>.</p>
-
 <p>Let us modify our program <code>mongodb1.rb</code> to access our database on MongoHQ:</p>
 <pre>require 'mongo'
 
@@ -306,12 +295,7 @@ coll_id = coll.insert(doc)
 
 <p>If the name and password are valid for the database, auth will be true. Otherwise, it will be false.</p>
 
-<p>After executing the above code, the collection <code>students</code> has a document, as seen in the image below.</p>
-</div>
-
-<div style="width:image 560 px; font-size:80%; text-align:center;"><img src="http://rubylearning.com/images/collection.jpg" alt="collection" width="560" style="padding-bottom:0.5em;" /><br />Collection</div>
-
-<div>
+<p>After executing the above code, the collection <code>students</code> has a document.</p>
       <p>
 	    <strong>
 	    <a href="chapter7.html">&lt;Chapter 7 | </a>
