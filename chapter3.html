@@ -20,7 +20,7 @@
 <h1 class="title">Day 3</h1>
 <h2>Understanding HTTP concepts</h2>
 
-<p>When you start building web applications, you would be dealing with HTTP a lot.</p>
+<p>When building web applications, a basic understanding of HTTP is mandatory. Here we try to introduce the basics, without overwhelming you.</p>
 
 <h3>What's HTTP?</h3>
 
@@ -41,7 +41,7 @@
 
 <h4>Loading a web page</h4>
 
-<p>When a browser loads a web page, it does a <code>GET</code> request for the URL requested. The content of the page is usually in a special text format called HTML that allows links, images and various style effects.</p>
+<p>When a browser loads a web page, it does a <code>GET</code> request for the specified URL. The content of the page is usually in a special markup format called HTML that allows links, images and various style effects.</p>
 
 <p>The browser analyses the HTML in order to display it to the user. But doing so, it may find that it needs more content to render the page correctly, like images.</p>
 
@@ -93,6 +93,11 @@
 <p>To  install  cURL  on  Linux,  you  should  first  check  for  cURL  binaries  in  your  distributions package repository. For exact instructions on how to do this, refer to your distribution's documentation. On Ubuntu and other Debian variants, you can install cURL by issuing the following command:</p>
 
 <pre>$ sudo apt-get install curl
+</pre>
+
+<p>If you are using the Homebrew package manager on OSX, cURL can simply be installed like this:</p>
+
+<pre>$ brew install curl
 </pre>
 
 <p>If cURL is not available in your distribution's package repository or you're running another operating system, you can find the right cURL package by following the download wizard at <a href="http://curl.haxx.se/dlwiz/">http://curl.haxx.se/dlwiz/</a>. Simply select the "curl executable" option, input information about your computer and operating system and it will direct you to the correct file download. Once downloaded, extract any files in the archive to an easily accessible file (for example, c:\cURL on Windows).</p>

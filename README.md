@@ -5,7 +5,7 @@ RubyLearning.org is planning a *free, online course* on topics that hopefully wi
 
 The course material is under preparation and I am looking for help from you to add / subtract / modify the topics and material for this course. We also require many problems/solutions for the course participants.
 
-The course is scheduled for 7th Jan. 2012 and we would have 3-4 mentors helping out the participants during the course. 
+The course is scheduled to be held in Jan. 2012 and we would have 3-4 mentors helping out the participants during the course. 
 
 Can you help?
 
@@ -28,7 +28,7 @@ Sponsors
 
 Support us by making a donation of whatever amount you find suitable, so that people from across the globe can learn Ruby programming for free. There are costs involved in developing course-ware, writing eBooks, hosting and maintaining the site and over time it gets expensive. Pay to satish.talim@gmail.com by Paypal.
 
-We have so far collected US$ 50 only.
+We have so far collected US$ 120 only.
 
 
 Acknowledgments
