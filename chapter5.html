@@ -342,7 +342,7 @@ module MyMiddleware
   end
 end
 </pre>
-<p>We keep the application reference in the <code>@app</code> variable when a new instance of the middleware is created.</p>
+<p>In the above program, we are using a <a href="http://rubylearning.com/satishtalim/modules_mixins.html">module</a>. Also, we keep the application reference in the <code>@app</code> variable when a new instance of the middleware is created.</p>
 <p><em><code>my_middleware.rb</code> is a rack middleware living on its own, that you need to require it in your app and then call it by telling rack to use it</em>.</p>
 
 <p>Create our app <code>config.ru</code> as follows:</p>
@@ -406,7 +406,8 @@ run Rack::Lobster.new
 *******************
 https://github.com/rack/rack/wiki/Rack-app-with-uri-and-HTTP-specific-responses
 https://gist.github.com/1447058
-https://github.com/rack/rack/blob/master/lib/rack/request.rb
+https://github.com/chneukirchen/rack/tree/master/lib/rack
+https://gist.github.com/57c8449e305a55a80e21
 http://openclassroom.stanford.edu/MainFolder/CoursePage.php?course=WebApplications
 *******************
 -->
