@@ -1,6 +1,6 @@
-Intermediate Ruby Tutorial: Preparing Ruby newbies for web programming. Copyright © 2011 by Satish Talim. All source code in Intermediate Ruby Tutorial is available under the MIT License ( http://www.opensource.org/licenses/mit-license.php ) and the Beerware License ( http://en.wikipedia.org/wiki/Beerware ).
+Intermediate Ruby Tutorial: Preparing Ruby newbies for web programming. Copyright © 2011 by RubyLearning.org. All source code in Intermediate Ruby Tutorial is available under the MIT License ( http://www.opensource.org/licenses/mit-license.php ) and the Beerware License ( http://en.wikipedia.org/wiki/Beerware ).
 
-   Copyright (c) 2011 Satish Talim
+   Copyright (c) 2011 RubyLearning.org
 
    Permission is hereby granted, free of charge, to any person
    obtaining a copy of this software and associated documentation
