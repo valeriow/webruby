@@ -35,6 +35,7 @@ Acknowledgments
 ---------------
 
 * Al Snow ( https://github.com/jasnow ) for his various suggestions.
+* Konstantin Haase ( https://github.com/rkh ) for providing us with another practical Rack app.
 * Matt Aimonetti ( https://github.com/mattetti ) for the GET/POST example related to Rack.
 * Michael Kohl ( https://github.com/citizen428 ) for proof reading and making relevant corrections to chapters 1 and 2.
 * Oto Brglez ( https://github.com/otobrglez ) for the note on "*Using Nokogiri*"

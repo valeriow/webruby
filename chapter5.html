@@ -319,6 +319,66 @@ run MyApp.new
 </pre>
 <p>Press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server. Close the command window.</p>
 
+<h4>Using Rack::Request and Rack::Response</h4>
+<p>We will use <code>cURL</code>, <code>Rack::Request</code> and <code>Rack::Response</code> in the code examples that follow.</p>
+<p>First, let's look at the following <code>cURL</code> command:</p>
+<pre>curl -X request
+</pre>
+<p>(HTTP) Specifies a custom request (GET, POST) to use when communicating with the HTTP server. The specified request will be used instead of the standard GET.</p>
+<pre>curl -X POST -d data
+</pre>
+<p>(HTTP) Sends the specified data in a POST request to the HTTP server, in a way that can emulate as if a user has filled in a HTML form and pressed the submit button. Note that the data is sent exactly as specified with no extra processing (with all newlines cut off). The data is expected to be "url-encoded". This will cause <code>cURL</code> to pass the data to the server using the content-type application/x-www-form-urlencoded. If more than one -d/--data option is used on the same command line, the data pieces specified will be merged together with a separating &amp;-letter. Thus, using '-d name=daniel -d skill=lousy' would generate a post chunk that looks like 'name=daniel&amp;skill=lousy'.</p>
+<p>If you start the data with the letter @, the rest should be a file name to read the data from, or - if you want <code>cURL</code> to read the data from stdin. The contents of the file must already be url-encoded.</p>
+
+<p>Do check out the source code for <a href="https://github.com/rack/rack/blob/master/lib/rack/request.rb">Rack::Request</a> and <a href="https://github.com/rack/rack/blob/master/lib/rack/response.rb">Rack::Response</a>. Let us write a program to explore these two:</p>
+
+<p>Our <code>config.ru</code> will be:</p>
+<pre>require './my_request'
+run MyRequest.new
+</pre>
+
+<p>Our application <b><code>my_request.rb</code></b> is as follows:</p>
+<pre># my_request.rb
+class MyRequest
+  def call(env)
+    req = Rack::Request.new(env)
+    name = req.params['name']
+    text = req.params['text']
+
+    Rack::Response.new.finish do |res|
+      res['Content-Type'] = 'text/plain'
+      res.status = 200
+      str = "Parameters sent: name - #{name} | text - #{text}"
+      res.write str
+    end
+  end
+end
+</pre>
+
+<p>To run our rack app, in the same folder that contains <code>config.ru</code>, open a command window and type:</p>
+<pre>$ rackup config.ru
+[2011-10-25 06:18:16] INFO  WEBrick 1.3.1
+[2011-10-25 06:18:16] INFO  ruby 1.9.3 (2011-07-09) [i386-mingw32]
+[2011-10-25 06:18:16] INFO  WEBrick::HTTPServer#start: pid=2224 port=9292
+</pre>
+
+<p>Our client is <code>cURL</code. Open a Bash shell and type:</p>
+<pre>$ curl -X POST -d 'name=Satish Talim&amp;text=This course is awesome!' localhost:9292
+</pre>
+<p>In your Bash shell, you should see something like this:</p>
+<pre>Parameters sent: name - Satish Talim | text - This course is awesome!
+</pre>
+
+<p>Type <code>exit</code> in your Bash shell and press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server. Close the command window.</p>
+
+<h4>A very basic practical Rack app</h4>
+<p><b>Credit:</b> <a href="https://github.com/mattetti">Matt Aimonetti</a></p>
+<p>Matt has been kind enough to <a href="https://gist.github.com/1447058">write this app</a> for us. It's a very basic rack application showing how to use a router based on the uri and how to process requests based on the HTTP method used. The explanation is <a href="https://github.com/rack/rack/wiki/Rack-app-with-uri-and-HTTP-specific-responses">here</a>.</p>
+
+<h4>Another practical Rack app</h4>
+<p><b>Credit:</b> <a href="https://github.com/rkh">Konstantin Haase</a></p>
+<p>Konstantin has provided us with <a href="https://gist.github.com/57c8449e305a55a80e21">another practical Rack app</a>, where we use <code>cURL</code> to upload a text file and which then gets sorted.</p>
+
 <h4>Rack middleware</h4>
 <p><b>Credit:</b> <a href="https://github.com/mattetti">Matt Aimonetti</a></p>
 <p><b>Remember</b>: <span style="background-color: #FFFFCC;">The fundamental idea behind Rack middleware is - come between the calling client and the server, process the HTTP request before sending it to the server, and processing the HTTP response before returning it to the client</span>.</p>
@@ -402,15 +462,6 @@ run Rack::Lobster.new
 </pre>
 <p>After you have finished executing this program, press <b>Ctrl-C</b> in the command window to stop the <b>WEBrick</b> server. Close the command window.</p>
 
-<!--
-*******************
-https://github.com/rack/rack/wiki/Rack-app-with-uri-and-HTTP-specific-responses
-https://gist.github.com/1447058
-https://github.com/chneukirchen/rack/tree/master/lib/rack
-https://gist.github.com/57c8449e305a55a80e21
-http://openclassroom.stanford.edu/MainFolder/CoursePage.php?course=WebApplications
-*******************
--->
 
 <h3>Rack::Builder</h3>
 <p>Under the hood, <code>rackup</code> converts your <code>config.ru</code> script to an instance of <a href="http://rack.rubyforge.org/doc/classes/Rack/Builder.html">Rack::Builder</a>.</p>
