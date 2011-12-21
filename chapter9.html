@@ -23,7 +23,7 @@
 
 <h3>What's Sinatra?</h3>
 
-<p>Sinatra keeps a minimal feature set, leaving developers to use the tools that best suit them and their application. Unlike Rails, there's no enforcement of concepts like MVC or REST in Sinatra.</p>
+<p><a href="http://www.sinatrarb.com/">Sinatra</a> keeps a minimal feature set, leaving developers to use the tools that best suit them and their application. Unlike Rails, there's no enforcement of concepts like <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> or <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> in Sinatra.</p>
 
 <p>It doesn't assume much about your application, apart from that:</p>
 <ul>
@@ -44,7 +44,7 @@
 </pre>
 
 <h3>Which web server?</h3>
-<p>The <code>Thin</code> web server is recommended. <code>Thin</code> uses code from <code>Mongrel</code> web server to parse HTTP requests but improves network I/O performance via EventMachine, which manages evented network communication. To install <code>Thin</code>, in the already open command window type:</p>
+<p>The <code>Thin</code> web server is recommended. <code>Thin</code> uses code from <code>Mongrel</code> web server to parse HTTP requests but improves network I/O performance via EventMachine, which manages evented network communication. To install <code>Thin</code>, in the already open command window, type:</p>
 <pre>$ gem install thin
 </pre>
 
@@ -59,7 +59,7 @@ end
 </pre>
 
 <p>In the open command window, type:</p>
-<pre>ruby myapp1.rb
+<pre>$ ruby myapp1.rb
 [2011-11-25 10:15:18] INFO  WEBrick 1.3.1
 [2011-11-25 10:15:18] INFO  ruby 1.9.3 (2011-10-30) [i386-mingw32]
 == Sinatra/1.3.1 has taken the stage on 4567 for development with backup from WEBrick
@@ -67,7 +67,7 @@ end
 </pre>
 
 <p>As you can see above, you will be notified that Sinatra has taken the stage.</p>
-<p>Sinatra uses port 4567 by default. Open a web browser and navigate to http://localhost:4567/. Your Sinatra application should respond with our greeting namely:</p>
+<p>Sinatra uses port 4567 by default. Open a web browser and navigate to <a href="http://localhost:4567/">http://localhost:4567/</a>. Your Sinatra application should respond with our greeting namely:</p>
 <pre>Hello Ruby participants from across the globe!
 </pre>
 
@@ -77,10 +77,13 @@ end
 
 <p>The form <code>verb 'route' do</code> in our code instructs the application to respond to HTTP GET requests to the path '/'; our response is composed by the block we provided for behavior. This composite endpoint is referred to as a <em>route</em>.</p>
 
-<p>Now let's use cURL to see what happens when this route is executed:</p>
-<pre>E:\cURL>curl http://localhost:4567
-Welcome from RubyLearning!
-c:\cURL>curl -v http://localhost:4567
+<p>Now let's use cURL to see what happens when this route is executed. In the already open command window, type:</p>
+<pre>$ curl http://localhost:4567
+Hello Ruby participants from across the globe!
+</pre>
+
+<p>Let us use the <code>-v</code> switch with <code>cURL</code>:</p>
+<pre>$ curl -v http://localhost:4567
 * About to connect() to localhost port 4567 (#0)
 *   Trying 127.0.0.1... connected
 &gt; GET / HTTP/1.1
@@ -101,7 +104,7 @@ Hello Ruby participants from across the globe!* Connection #0 to host localhost 
 * Closing connection #0
 </pre>
 
-<p><b>Note</b>: The switch <code>-v</code> or <code>--verbose</code> makes the fetching more verbose/talkative. Mostly useful for debugging. A line starting with '&gt;' means "header data" sent by curl, '&lt;' means "header data" received by curl that is hidden in normal cases, and a line starting with '*' means additional info provided by curl.</p>
+<p><b>Note</b>: The switch <code>-v</code> or <code>--verbose</code> makes the fetching more verbose/talkative. Mostly useful for debugging. A line starting with '&gt;' means "header data" sent by <code>cURL</code>, '&lt;' means "header data" received by <code>cURL</code> that is hidden in normal cases, and a line starting with '*' means additional info provided by <code>cURL</code>.</p>
 
 <h3>Introduction to Sinatra eBook (Updated 15th Sept. 2011)</h3>
 <p>We have had a very quick look at Sinatra. For a more detailed look, you could consider buying the <a href="http://rubylearning.com/blog/introduction-to-sinatra-ebook/">Introduction to Sinatra eBook</a>, an easy-to-follow guide to everything on Sinatra.</p>
@@ -125,6 +128,7 @@ Hello Ruby participants from across the globe!* Connection #0 to host localhost 
 <li><a href="http://coderack.org/">http://coderack.org/</a></li>
 <li><a href="http://m.onkey.org/ruby-on-rack-2-the-builder">http://m.onkey.org/ruby-on-rack-2-the-builder</a></li>
 <li><a href="http://rubysource.com/php-vs-ruby-whats-the-point/">http://rubysource.com/php-vs-ruby-whats-the-point/</a></li>
+<li><a href="http://rubysource.com/rack-for-middlewares/">http://rubysource.com/rack-for-middlewares/</a></li>
 <li><a href="http://devcenter.heroku.com/articles/static-sites-on-heroku">http://devcenter.heroku.com/articles/static-sites-on-heroku</a></li>
 <li><a href="http://www.w3schools.com/json/default.asp">http://www.w3schools.com/json/default.asp</a></li>
 <li><a href="https://github.com/karlseguin/the-little-mongodb-book">https://github.com/karlseguin/the-little-mongodb-book</a></li>
@@ -139,7 +143,7 @@ Hello Ruby participants from across the globe!* Connection #0 to host localhost 
 	    </strong>
       </p>
 <div id="footer">
-  <p>&copy; 2006-2012&nbsp;<strong>RubyLearning.org - Intermediate Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 9th Dec. 2011</p>
+  <p>&copy; 2006-2012&nbsp;<strong>RubyLearning.org - Intermediate Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 21st Dec. 2011</p>
 </div>
 
 </div>
