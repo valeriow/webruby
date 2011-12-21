@@ -76,7 +76,7 @@ end
 <pre>get '/' do
 </pre>
 
-<p>The form <code>verb 'route' do</code> in our code instructs the application to respond to HTTP GET requests to the path '/'; our response is composed by the block we provided for behavior. This composite endpoint is referred to as a <em>route</em>. Routes in your application are matched in top-down order; the first route that matches the incoming request is the one that gets used.</p>
+<p>The form <code>verb 'route' do</code> in our code instructs the application to respond to HTTP GET requests to the path '/'; our response is composed by the block we provided for behavior. This composite endpoint is referred to as a <em>route</em>.</p>
 
 <p>Now let's use cURL to see what happens when this route is executed. In the already open command window, type:</p>
 <pre>$ curl http://localhost:4567
@@ -106,6 +106,15 @@ Hello Ruby participants from across the globe!* Connection #0 to host localhost 
 </pre>
 
 <p><b>Note</b>: The switch <code>-v</code> or <code>--verbose</code> makes the fetching more verbose/talkative. Mostly useful for debugging. A line starting with '&gt;' means "header data" sent by <code>cURL</code>, '&lt;' means "header data" received by <code>cURL</code> that is hidden in normal cases, and a line starting with '*' means additional info provided by <code>cURL</code>.</p>
+
+<p>Remember that routes in your application are matched in top-down order; the first route that matches the incoming request is the one that gets used. Routes in Sinatra can also accept parameters that are exposed in code via the <code>params</code> array. Example:</p>
+
+<pre>require 'sinatra'
+post '/login' do
+  username = params[:username]
+  password = params[:password]
+end
+</pre>
 
 <h3>Introduction to Sinatra eBook (Updated 15th Sept. 2011)</h3>
 <p>We have had a very quick look at Sinatra. For a more detailed look, you could consider buying the <a href="http://rubylearning.com/blog/introduction-to-sinatra-ebook/">Introduction to Sinatra eBook</a>, an easy-to-follow guide to everything on Sinatra.</p>
