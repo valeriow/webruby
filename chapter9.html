@@ -23,7 +23,7 @@
 
 <h3>What's Sinatra?</h3>
 
-<p><a href="http://www.sinatrarb.com/">Sinatra</a> keeps a minimal feature set, leaving developers to use the tools that best suit them and their application. Unlike Rails, there's no enforcement of concepts like <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> or <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> in Sinatra.</p>
+<p><a href="http://www.sinatrarb.com/">Sinatra</a> is a Ruby-based web application library. Unlike Rails, there's no enforcement of concepts like <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> or <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> in Sinatra.</p>
 
 <p>It doesn't assume much about your application, apart from that:</p>
 <ul>
@@ -31,7 +31,7 @@
 <li>it will have URLs</li>
 </ul>
 
-<p>Sinatra itself provides just a minimal layer on top of the HTTP protocol. Sinatra rides on Rack.</p>
+<p>Sinatra serves as a lightweight wrapper around Rack middleware, with syntax that maps closely to functions exposed to HTTP verbs.</p>
 
 <h3>Create a folder on your hard disk</h3>
 <p>Create a folder <code>sinatraapp</code>. This is where we will store our Sinatra app.</p>
@@ -82,7 +82,7 @@ end
 Hello Ruby participants from across the globe!
 </pre>
 
-<p>Let us use the <code>-v</code> switch with <code>cURL</code>:</p>
+<p>Let us use the <code>-v</code> switch with <code>cURL</code>, type:</p>
 <pre>$ curl -v http://localhost:4567
 * About to connect() to localhost port 4567 (#0)
 *   Trying 127.0.0.1... connected
