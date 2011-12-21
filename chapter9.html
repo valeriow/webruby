@@ -23,7 +23,7 @@
 
 <h3>What's Sinatra?</h3>
 
-<p><a href="http://www.sinatrarb.com/">Sinatra</a> is a Ruby-based web application library. Unlike Rails, there's no enforcement of concepts like <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> or <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> in Sinatra.</p>
+<p><a href="http://www.sinatrarb.com/">Sinatra</a> is a Ruby-based web application library. Sinatra is not a <a href="http://en.wikipedia.org/wiki/Web_application_framework">web application framework</a> and unlike Rails, there's no enforcement of concepts like <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> or <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> in Sinatra.</p>
 
 <p>It doesn't assume much about your application, apart from that:</p>
 <ul>
@@ -31,7 +31,8 @@
 <li>it will have URLs</li>
 </ul>
 
-<p>Sinatra serves as a lightweight wrapper around Rack middleware, with syntax that maps closely to functions exposed to HTTP verbs.</p>
+<p>Sinatra serves as a lightweight wrapper around Rack middleware, with syntax that maps closely to functions exposed by HTTP verbs.</p>
+<p>Sinatra is used to build websites, web services and web applications in Ruby.</p>
 
 <h3>Create a folder on your hard disk</h3>
 <p>Create a folder <code>sinatraapp</code>. This is where we will store our Sinatra app.</p>
@@ -75,7 +76,7 @@ end
 <pre>get '/' do
 </pre>
 
-<p>The form <code>verb 'route' do</code> in our code instructs the application to respond to HTTP GET requests to the path '/'; our response is composed by the block we provided for behavior. This composite endpoint is referred to as a <em>route</em>.</p>
+<p>The form <code>verb 'route' do</code> in our code instructs the application to respond to HTTP GET requests to the path '/'; our response is composed by the block we provided for behavior. This composite endpoint is referred to as a <em>route</em>. Routes in your application are matched in top-down order; the first route that matches the incoming request is the one that gets used.</p>
 
 <p>Now let's use cURL to see what happens when this route is executed. In the already open command window, type:</p>
 <pre>$ curl http://localhost:4567
@@ -134,7 +135,9 @@ Hello Ruby participants from across the globe!* Connection #0 to host localhost 
 <li><a href="https://github.com/karlseguin/the-little-mongodb-book">https://github.com/karlseguin/the-little-mongodb-book</a></li>
 <li><a href="http://rubylearning.com/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/">http://rubylearning.com/blog/2010/12/21/being-awesome-with-the-mongodb-ruby-driver/</a></li>
 <li><a href="http://api.mongodb.org/ruby/current/file.TUTORIAL.html">http://api.mongodb.org/ruby/current/file.TUTORIAL.html</a></li>
+<li><a href="http://shop.oreilly.com/product/0636920019664.do">http://shop.oreilly.com/product/0636920019664.do</a></li>
 </ul>
+
       <p>
 	    <strong>
 	    <a href="chapter8.html">&lt;Chapter 8 | </a>
