@@ -179,7 +179,7 @@ te("1955-03-10T18:25:00Z"), "loves" : [ "ruby", "java" ], "weight" : 76, "gender
 </pre>
 <p>You should discover <b>updates first surprise</b>. No document is found because the second parameter we supply is used to replace the original. In other words, the <code>update</code> found a document by name and replaced the entire document with the new document (the 2nd parameter). <em>This is different than how SQL's update command works</em>.</p>
 
-<p>When you want change the value of one, or a few fields, it's best to use MongoDB's <code>$set</code> modifier:</p>
+<p>When you want to change the value of one, or a few fields, it's best to use MongoDB's <code>$set</code> modifier:</p>
 <pre>db.students.update({weight: 62}, {$set: {name: 'Satoshi', dob: new Date(1970,1,11,3,55), loves: ['ruby','c'], gender: 'm', country: 'japan'}})
 </pre>
 
@@ -190,16 +190,16 @@ te("1955-03-10T18:25:00Z"), "loves" : [ "ruby", "java" ], "weight" : 76, "gender
 <pre>db.students.update({name: 'Satoshi'}, {$set: {weight: 62}})
 </pre>
 
-<p>Now let's learn how to use the MongoDB Ruby Driver with whatever we have learnt so far.</p>
+<p>Now let's learn how to use the MongoDB Ruby Driver by using whatever we have learnt so far.</p>
 
 <h3>MongoDB Ruby Driver - mongo</h3>
 <h4>Installation</h4>
 <p>Since the driver is just a gem, installation is simple:</p>
-<pre>gem install mongo
+<pre>$ gem install mongo
 </pre>
 
 <p>There is one more piece to install, <code>bson_ext</code>. Essentially, this is a collection of C extensions used to increase the speed of serialization. While this is optional, I recommend that you install it:</p>
-<pre>gem install bson_ext
+<pre>$ gem install bson_ext
 </pre>
 
 <h4>Using the mongo gem</h4>
@@ -302,6 +302,8 @@ coll_id = coll.insert(doc)
 <p>If the name and password are valid for the database, auth will be true. Otherwise, it will be false.</p>
 
 <p>After executing the above code, the collection <code>students</code> has a document.</p>
+<p>This has been a very quick tour of MongoDB but I am sure that it would have given you the necessary tools to start using MongoDB with Ruby.</p>
+
       <p>
 	    <strong>
 	    <a href="chapter7.html">&lt;Chapter 7 | </a>
@@ -310,7 +312,7 @@ coll_id = coll.insert(doc)
 	    </strong>
       </p>
 <div id="footer">
-  <p>&copy; 2006-2012&nbsp;<strong>RubyLearning.org - Intermediate Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 21st Dec. 2011</p>
+  <p>&copy; 2006-2012&nbsp;<strong>RubyLearning.org - Intermediate Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 22nd Dec. 2011</p>
 </div>
 
 </div>
