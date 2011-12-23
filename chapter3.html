@@ -217,11 +217,12 @@ puts "Page title is: " + page.at(:title).inner_html
 
 <h3>Using Nokogiri</h3>
 <p><b>Credit:</b> <a href="https://github.com/otobrglez">Oto Brglez</a></p>
-<p>Another library worth looking into is <a href="http://nokogiri.org/">Nokogiri</a>. Nokogiri is a <a href="http://www.wikipedia.org/wiki/HTML">HTML</a>, <a href="http://www.wikipedia.org/wiki/XML">XML</a>, <a href="http://www.wikipedia.org/wiki/XML#Simple_API_for_XML_.28SAX.29">SAX</a> parser/reader with the ability to search documents via <a href="http://www.wikipedia.org/wiki/XPath">XPath</a> or <a href="http://www.wikipedia.org/wiki/CSS3#CSS_3">CSS3</a> selectors.</p>
+<p>Another library worth looking into is <a href="http://nokogiri.org/">Nokogiri</a>. Nokogiri is a <a href="http://www.wikipedia.org/wiki/HTML">HTML</a>, <a href="http://www.wikipedia.org/wiki/XML">XML</a>, <a href="http://www.wikipedia.org/wiki/XML#Simple_API_for_XML_.28SAX.29">SAX</a> parser/reader with the ability to search documents via <a href="http://www.wikipedia.org/wiki/XPath">XPath</a> or <a href="http://www.wikipedia.org/wiki/CSS3#CSS_3">CSS3</a> selectors. In short, it's a great library that serves virtually all of your HTML scraping needs. Learning to web scrape allows you to gather, in an automated fashion, freely available data in virtually any kind of online format.</p>
 
 <p>You can install Nokogiri with the following command:</p>
 <pre>$ gem install nokogiri
 </pre>
+<p>What <code>open-uri</code> does for us is encapsulate all the work of making a HTTP request into the <code>open</code> method, making the operation as simple as as opening a file on our own hard drive.</p>
 
 <h4>Fetching documents from web</h4>
 <p>You can combine <code>nokogiri</code> with <code>open-uri</code> to fetch documents:</p>
