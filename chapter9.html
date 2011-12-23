@@ -164,12 +164,13 @@ The first and only free Sinatra course on the planet!!
 
 The current time is: 2011-12-22 15:05:48 +0530
 </pre>
+<p>In the open command window, press Ctrl C to stop Sinatra. Close the command window.</p>
 
 <h4>Handlers and Form parameters</h4>
 <p>Handler is the generic term that Sinatra uses for the "controllers". <em>A handler is the initial point of entry for new HTTP requests into your application</em>.</p>
 
 <p>In handlers you can reach submitted form parameters directly via the <code>params</code> hash, namely:</p>
-<pre>params['post']
+<pre>params[:post]
 </pre>
 
 <p>Also, the support of nested parameters is built-in Sinatra. For example:</p>
@@ -182,16 +183,61 @@ The current time is: 2011-12-22 15:05:48 +0530
 &lt;/p&gt;
 </pre>
 
-<p>The parameters in this case became as a hash:</p>
+<p>The parameters in this case become as a hash:</p>
 <pre>{:post=>{ :title=>"", :body=>"", :author=>"" }}
 </pre>
 <p>Therefore in handlers you can use nested parameters like a regular hash:</p>
 <pre>params[:post][:title]
 </pre>
-<p>An example will illustrate what we have learned about form parameters, above:</p>
+<p>An example will illustrate what we have learned so far about form parameters:</p>
 
+<p>In the folder <code>sinatraapp</code> write a program, call it <code>myapp3.rb</code>, as follows:</p>
+<pre># myapp3.rb
+require 'sinatra'
+get '/' do
+  erb :home
+end
 
+post '/display' do
+  erb :show
+end
+</pre>
 
+<p>Create the files <code>home.erb</code> and <code>show.erb</code> in the <code>views</code> folder, as follows:</p>
+<p><b>home.erb</b></p>
+<pre>&lt;h1&gt;Form Parameters&lt;/h1&gt;
+&lt;p&gt;The example will display submitted form parameters directly via the params hash&lt;/p&gt;
+&lt;form action="/display" method="post" accept-charset="utf-8"&gt;
+&lt;input type="text" name="post[fname]" value="Type your first name..." id="fname" /&gt;&lt;br /&gt;
+&lt;input type="text" name="post[lname]" value="Type your last name...." id="lname" /&gt;&lt;br /&gt;
+&lt;input type="submit" value=".. and display it!"&gt;
+&lt;/form&gt;
+</pre>
+
+<p><b>show.erb</b></p>
+<pre>&lt;h1&gt;Form Parameters Display&lt;/h1&gt;
+&lt;p&gt;You had entered:&lt;/p&gt;
+&lt;p&gt;First Name - &lt;%= params[:post][:fname] %&gt;&lt;/p&gt;
+&lt;p&gt;Last Name - &lt;%= params[:post][:lname] %&gt;&lt;/p&gt;
+&lt;p&gt;Click &lt;a href="/"&gt;here&lt;/a&gt; to try a new name.&lt;/p&gt;
+</pre>
+
+<p>Open a new command window and type:</p>
+<pre>$ ruby myapp3.rb
+[2011-12-23 08:28:25] INFO  WEBrick 1.3.1
+[2011-12-23 08:28:25] INFO  ruby 1.9.3 (2011-10-30) [i386-mingw32]
+== Sinatra/1.3.1 has taken the stage on 4567 for development with backup from WEBrick
+[2011-12-23 08:28:25] INFO  WEBrick::HTTPServer#start: pid=7924 port=4567
+</pre>
+
+<p>Open a web browser and navigate to <a href="http://localhost:4567/">http://localhost:4567/</a>. Your Sinatra application should respond with:</p>
+</div>
+
+<div style="width:image 560 px; font-size:80%; text-align:center;"><img src="images/form.jpg" alt="Form" style="padding-bottom:0.5em;" /><br />Sinatra Form</div>
+
+<div>
+
+<p>In the open command window, press Ctrl C to stop Sinatra. Close the command window.</p>
 
 <h3>Introduction to Sinatra eBook (Updated 15th Sept. 2011)</h3>
 <p>We have had a very quick look at Sinatra. For a more detailed look, you could consider buying the <a href="http://rubylearning.com/blog/introduction-to-sinatra-ebook/">Introduction to Sinatra eBook</a>, an easy-to-follow guide to everything on Sinatra.</p>
