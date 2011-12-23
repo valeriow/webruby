@@ -76,6 +76,7 @@ end
 <pre>get '/' do
 </pre>
 
+<p>To declare a route in Sinatra, you must supply the HTTP verb to respond to, the specific URL, and then optionally define the behavior desired for the route.</p>
 <p>The form <code>verb 'route' do</code> in our code instructs the application to respond to HTTP GET requests to the path '/'; our response is composed by the block we provided for behavior. This composite endpoint is referred to as a <em>route</em>.</p>
 
 <p>Now let's use <code>cURL</code> to see what happens when this route is executed. Open a new command window, type:</p>
@@ -163,6 +164,32 @@ The first and only free Sinatra course on the planet!!
 
 The current time is: 2011-12-22 15:05:48 +0530
 </pre>
+
+<h4>Handlers and Form parameters</h4>
+<p>Handler is the generic term that Sinatra uses for the "controllers". <em>A handler is the initial point of entry for new HTTP requests into your application</em>.</p>
+
+<p>In handlers you can reach submitted form parameters directly via the <code>params</code> hash, namely:</p>
+<pre>params['post']
+</pre>
+
+<p>Also, the support of nested parameters is built-in Sinatra. For example:</p>
+
+<pre>&lt;form&gt;
+&lt;input ... name="post[title]" /&gt;&lt;br /&gt;
+&lt;input ... name="post[body]" /&gt;&lt;br /&gt;
+&lt;input ... name="post[author]" /&gt;
+&lt;/form&gt;
+&lt;/p&gt;
+</pre>
+
+<p>The parameters in this case became as a hash:</p>
+<pre>{:post=>{ :title=>"", :body=>"", :author=>"" }}
+</pre>
+<p>Therefore in handlers you can use nested parameters like a regular hash:</p>
+<pre>params[:post][:title]
+</pre>
+<p>An example will illustrate what we have learned about form parameters, above:</p>
+
 
 
 
