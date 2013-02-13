@@ -1,327 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Intermediate Ruby Tutorial</title>
-<meta charset="utf-8" >
-<meta name="author" content="Satish Talim" >
-<meta name="keywords" content="programming, Ruby, Rack, Sinatra" >
-<meta name="description" content="A Ruby programming tutorial on topics that hopefully will help those that have some knowledge of Ruby programming to get started with web programming." >
-<link rel="stylesheet" href="stylesheets/intruby.css">
-</head>
-<body>
-<div id="content">
-<h1 class="title">Intermediate Ruby Course</h1>
-<hr />
-<div id="table-of-contents">
 
-<!-- // MAILCHIMP SUBSCRIBE CODE \\ -->
-<p><b><a href="http://eepurl.com/hq0JQ">SUBSCRIBE TO THE WAITING LIST TO BE NOTIFIED WHEN THIS COURSE BECOMES AVAILABLE.</a></b></p>
-<!-- \\ MAILCHIMP SUBSCRIBE CODE // -->
-<p><b>Please note</b>: We never share your personal information. Please see our <a href="privacy.html" target="_blank">Privacy Policy</a> for more information.</p>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Webruby : Preparing the Core Ruby participants for the web." />
 
-<h2>Foreword</h2>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-<p>Web-based applications offer numerous advantages, such as instant access, automatic upgrades, and opportunities for collaboration on a massive scale. However, creating Web applications requires different approaches than traditional applications and involves the integration of numerous technologies. RubyLearning.org is planning a free, online course on topics that hopefully will help those that have some knowledge of Ruby programming to get started with web programming - call it "Intermediate Ruby Programming" (this does not cover Ruby on Rails). The course material is under preparation and I am looking for help from you to add / subtract / modify the topics and material for this course. We also require many problems/solutions for the course participants. Can you help?</p>
+    <title>Webruby</title>
+  </head>
 
-<p>The course will be held sometime in Jan. 2012 and we would have 3-4 mentors helping out the participants during the course.</p>
+  <body>
 
-<h2>Sponsors</h2>
-<p>Support us by making a donation of whatever amount you find suitable, so that people from across the globe can learn Ruby programming for free. There are costs involved in developing course-ware, writing eBooks, hosting and maintaining the site and over time it gets expensive. Click on the Donate link below.</p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/valeriow/webruby">View on GitHub</a>
 
-<div id="paypal">
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<p><input type="hidden" name="cmd" value="_s-xclick" /></p>
-<p><input type="hidden" name="hosted_button_id" value="Z8P9TENNQ7VWN" /></p>
-<p><input type="image" src="images/btn_donate_150wx70h.gif" style="border: 0px none ;" name="submit" alt="PayPal - The safer, easier way to pay online." /></p>
-</form>
-</div>
-<p>We have so far collected <b>US$ 120</b> only.</p>
-<h2>Contributing to this project</h2>
-<ul>
-<li>The best ways to start contributing to this project is by opening an issue and mentioning whatever bugs / typos you have discovered.</li>
-<li>You can just fork the <a href="https://github.com/SatishTalim/webruby">repository</a> and add things relevant to web programming in Ruby. Michael or Satish can commit your pull requests.</li>
-</ul>
+          <h1 id="project_title">Webruby</h1>
+          <h2 id="project_tagline">Preparing the Core Ruby participants for the web.</h2>
 
-<h2>Course Contents</h2>
-<div id="text-table-of-contents">
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/valeriow/webruby/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/valeriow/webruby/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-<ul>
-<li><a href="chapter1.html">DAY 1</a></li>
-<li>Using Git
-  <ul>
-    <li>What's Version Control</li>
-    <li>What's Git?
-      <ul>
-        <li>Downloading and Installing Git</li>
-        <li>Create a local folder</li>
-        <li>Let us start using Git</li>
-        <li>Introduce yourself to Git</li>
-        <li>Create your SSH Key</li>
-      </ul>
-    </li>
-  </ul>
-</li>
-<li>Using GitHub
-  <ul>
-    <li>What's GitHub?
-      <ul>
-        <li>Set up your GitHub account</li>
-        <li>Creating a new repository</li>
-        <li>Add your SSH key to GitHub</li>
-      </ul>
-    </li>
-  </ul>
-</li>
-<li>Using RVM (for *nix)
-  <ul>
-    <li>What is RVM?</li>
-    <li>Prerequisites</li>
-    <li>Installing RVM</li>
-    <li>Loading RVM into your shell</li>
-    <li>Reload shell configuration and test</li>
-    <li>Install a Ruby interpreter</li>
-  </ul>
-</li>
-<li>Using pik (for Windows)
-  <ul>
-    <li>What's pik?</li>
-    <li>Installing pik</li>
-    <li>Using pik</li>
-  </ul>
-</li>
-<li>Exercise 1</li>
-<li><a href="chapter2.html">DAY 2</a></li>
-<li>Creating a simple webpage using HTML5, CSS and JavaScript
-  <ul>
-    <li>A Webpage, Step by Step</li>
-    <li>Before we begin, Launch a Text Editor
-      <ul>
-        <li>Step 1: Start with content</li>
-        <li>Step 2: Give the document structure</li>
-        <li>Step 3: Identify text elements</li>
-        <li>Step 4: Add an image</li>
-        <li>Step 5: Change the look with a style sheet</li>
-        <li>Add some JavaScript</li>
-      </ul>
-    </li>
-  </ul>
-</li>
-<li>Store your webpage files on GitHub</li>
-<li>Exercise 2</li>
-<li><a href="chapter3.html">DAY 3</a></li>
-<li>Understanding HTTP concepts
-  <ul>
-    <li>What's HTTP?
-      <ul>
-        <li>Loading a web page</li>
-      </ul>
-    </li>
-    <li>HTTP request methods (verbs)
-      <ul>
-        <li>GET</li>
-        <li>POST</li>
-        <li>PUT</li>
-        <li>DELETE</li>
-      </ul>
-    </li>
-    <li>Using cURL</li>
-    <li>HTTP response codes</li>
-    <li>net/http library
-      <ul>
-        <li>Using URI</li>
-      </ul>
-    </li>
-    <li>Using open-uri</li>
-    <li>Using Hpricot</li>
-    <li>Using Nokogiri
-      <ul>
-        <li>Fetching documents from web</li>
-        <li>Searching inside HTML documents</li>
-      </ul>
-    </li>
-  </ul>
-</li>
-<li>Exercise 3</li>
-<li><a href="chapter4.html">DAY 4</a></li>
-<li>Creating one's own Ruby Gem
-  <ul>
-    <li>What's a Ruby Gem?</li>
-    <li>Let us create a simple Ruby library</li>
-    <li>Steps for publishing our gem</li>
-  </ul>
-</li>
-<li><a href="chapter5.html">DAY 5 and 6</a></li>
-<li>Learning Rack
-  <ul>
-    <li>Revisiting Ruby's proc object
-      <ul>
-        <li>my_proc1.rb</li>
-      </ul>
-    </li>
-    <li>Rack Specification</li>
-    <li>A simple Rack app - my_rack_proc
-      <ul>
-        <li>my_rack_proc.rb</li>
-      </ul>
-    </li>
-    <li>Rack Documentation</li>
-    <li>Rack Source Code</li>
-    <li>Installing Rack gem
-      <ul>
-        <li>my_rack_proc2.rb</li>
-      </ul>
-    </li>
-    <li>Another Rack app - my_method
-      <ul>
-        <li>my_rack2.rb</li>
-      </ul>
-    </li>
-    <li>Using rackup
-      <ul>
-        <li>my_app.rb</li>
-        <li>Using Rack::Request and Rack::Response</li>
-        <li>A very basic practical Rack app</li>
-        <li>Another practical Rack app</li>
-        <li>Rack middleware</li>
-        <li>Using Lobster</li>
-      </ul>
-    </li>
-    <li>Rack::Builder</li>
-  </ul>
-</li>
-<li><a href="chapter6.html">DAY 7</a></li>
-<li>Deploying Pure Rack Apps to Heroku
-  <ul>
-    <li>What's Heroku?
-      <ul>
-        <li>Create an account on Heroku</li>
-        <li>Install Bundle</li>
-        <li>Deploy your app to Heroku</li>
-      </ul>
-    </li>
-  </ul>
-</li>
-<li><a href="chapter7.html">DAY 8</a></li>
-<li>Deploying a static webpage to Heroku</li>
-<li><a href="chapter8.html">DAY 9</a></li>
-<li>What's JSON?</li>
-<li>Using MongoDB with Ruby Mongo driver
-  <ul>
-    <li>What's NoSQL?</li>
-    <li>What's MongoDB?</li>
-    <li>Setup MongoDB</li>
-    <li>MongoDB Core Concepts</li>
-    <li>The Basics
-      <ul>
-        <li>Switch databases</li>
-		<li>Insert a document</li>
-        <li>Use find()</li>
-        <li>Removing all documents</li>
-        <li>Query Selectors</li>
-        <li>Updating a document</li>
-      </ul>
-    </li>
-    <li>MongoDB Ruby Driver - mongo
-      <ul>
-        <li>Installation</li>
-        <li>Using the mongo gem</li>
-        <li>Making a Connection</li>
-        <li>Getting a List Of Collections</li>
-        <li>Getting a Collection</li>
-        <li>Inserting a Document</li>
-        <li>Updating a Document</li>
-      </ul>
-    </li>
-    <li>MongoHQ the hosted database
-      <ul>
-        <li>Sign Up</li>
-        <li>Create a database</li>
-        <li>Accessing the database</li>
-      </ul>
-    </li>
-  </ul>
-</li>
-<li><a href="chapter9.html">DAY 10</a></li>
-<li>Sinatra with MongoDB
-  <ul>
-    <li>What's Sinatra?</li>
-    <li>Create a folder on your hard disk</li>
-    <li>Install Sinatra</li>
-    <li>Which web server?</li>
-    <li>Our trivial Sinatra application</li>
-    <li>ERB and View
-      <ul>
-        <li>ERB</li>
-        <li>View</li>
-        <li>Handlers and Form parameters</li>
-      </ul>
-    </li>
-    <li>Work-In-Progress</li>
-  </ul>
-</li>
-<li>References</li>
-</ul>
-</div>
-</div>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>Welcome to GitHub Pages.</h3>
 
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
-<h2>Acknowledgments</h2>
-<ul>
-<li><a href="https://github.com/jasnow">Al Snow</a> for his various suggestions.</li>
-<li><a href="https://github.com/rkh">Konstantin Haase</a> for providing us with another practical Rack app.</li>
-<li><a href="https://github.com/mattetti">Matt Aimonetti</a> for the GET/POST example related to Rack.</li>
-<li><a href="https://github.com/citizen428">Michael Kohl</a> for proof reading and making relevant corrections to chapters 1 and 2.</li>
-<li><a href="https://github.com/otobrglez">Oto Brglez</a> for the note on "Using Nokogiri"</li>
-<li><a href="https://github.com/punjab">Punjab</a> for beautifying the css and for the note on "Using RVM"</li>
-<li><a href="https://github.com/kotp">Victor Goff</a> for his various suggestions.</li>
-<li><a href="https://github.com/PotHix">Willian Molinari</a> for creating the GitHub page for this project.</li>
-<li><a href="https://github.com/zhhailon">Zhang Hailong</a> for making relevant corrections in chapter 2.</li>
-</ul>
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
 
-<h2>About RubyLearning.org</h2>
-<p><a href="http://rubylearning.org/">RubyLearning.org</a>, since 2005, has been helping Ruby Newbies go from zero to awesome!</p>
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
-<h2>Copyright and license</h2>
-<p>Intermediate Ruby Tutorial: Preparing Ruby newbies for web programming. Copyright &#64; 2012 by Satish Talim. All source code in Intermediate Ruby Tutorial is available under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a> and the <a href="http://en.wikipedia.org/wiki/Beerware">Beerware License</a>.</p>
-<pre>
-   Copyright (c) 2012 RubyLearning.org
+<h3>Designer Templates</h3>
 
-   Permission is hereby granted, free of charge, to any person
-   obtaining a copy of this software and associated documentation
-   files (the "Software"), to deal in the Software without
-   restriction, including without limitation the rights to use,
-   copy, modify, merge, publish, distribute, sublicense, and/or sell
-   copies of the Software, and to permit persons to whom the
-   Software is furnished to do so, subject to the following
-   conditions:
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
-   The above copyright notice and this permission notice shall be
-   included in all copies or substantial portions of the Software.
+<h3>Rather Drive Stick?</h3>
 
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-   NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-   HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-   WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-   OTHER DEALINGS IN THE SOFTWARE.
-/*
- * ------------------------------------------------------------
- * "THE BEERWARE LICENSE" (Revision 42):
- * Satish Talim wrote this file. As long as you retain this
- * notice, you can do whatever you want with this stuff. If we
- * meet someday, and you think this stuff is worth it, you can
- * buy me a beer in return.
- * ------------------------------------------------------------
- */
-</pre>
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
 
-<div id="footer">
-  <p>&copy; 2006-2012&nbsp;<strong>RubyLearning.org - Intermediate Ruby Tutorial</strong>&nbsp;&nbsp;Page Updated: 19th Dec. 2011</p>
-</div>
+<h3>Authors and Contributors</h3>
 
-</div>
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Webruby maintained by <a href="https://github.com/valeriow">valeriow</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
-
 </html>
